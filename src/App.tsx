@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navigation from "./components/Navigation/Navigation";
 import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 import About from "./pages/About/About";
 import Panel from "./wrappers/Panel/Panel";
@@ -25,23 +26,25 @@ function App() {
   }
 
   return (
-    <div className="container mx-auto">
-      <div className="flex justify-end space-x-4 py-8">
-        <ThemeSwitcher currentTheme={theme} onThemeSwitch={onThemeSwitch} />
-      </div>
-      <div className="grid-cols-3 md:grid md:gap-8">
-        <div className="col-span-1">
-          <Panel>--Profile card--</Panel>
+    <div className="min-h-[100vh] bg-gradient-to-r from-white to-slate-100  dark:from-slate-900 dark:to-primary">
+      <div className="container mx-auto">
+        <div className="flex justify-end space-x-4 py-8">
+          <ThemeSwitcher currentTheme={theme} onThemeSwitch={onThemeSwitch} />
         </div>
-        <div className="col-span-2">
-          <Panel>--Menu--</Panel>
-          <Panel>
+        <div className="grid-cols-3 md:grid md:gap-8">
+          <div className="col-span-1">
+            <Panel>--Profile card--</Panel>
+          </div>
+          <div className="col-span-2">
             <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<About />} />
-              </Routes>
+              <Navigation />
+              <Panel>
+                <Routes>
+                  <Route path="/" element={<About />} />
+                </Routes>
+              </Panel>
             </BrowserRouter>
-          </Panel>
+          </div>
         </div>
       </div>
     </div>
