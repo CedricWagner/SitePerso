@@ -10,7 +10,7 @@
     @apply bg-primary text-white  focus:ring-primary;
   }
   .btn-dark {
-    @apply bg-slate-700 text-white focus:ring-slate-700;
+    @apply bg-slate-700 text-white hover:bg-opacity-80 focus:ring-slate-700;
   }
   .btn-light {
     @apply bg-slate-200 text-dark focus:ring-slate-200;

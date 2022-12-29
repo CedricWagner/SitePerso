@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
+import ProfileCard from "./components/ProfileCard/ProfileCard";
 import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 import About from "./pages/About/About";
 import Panel from "./wrappers/Panel/Panel";
@@ -33,7 +34,17 @@ function App() {
         </div>
         <div className="grid-cols-3 md:grid md:gap-8">
           <div className="col-span-1">
-            <Panel>--Profile card--</Panel>
+            <ProfileCard
+              name="Cédric Wagner"
+              phone="06 82 28 63 65"
+              email="cedricwagner@free.fr"
+              birthday="14/08/1990"
+              github="https://github.com/CedricWagner"
+              image=""
+              linkedin="https://www.linkedin.com/in/c%C3%A9dric-wagner-573ab8129/"
+              location="Strasbourg"
+              role="Développeur Web / Fullstack"
+            />
           </div>
           <div className="col-span-2">
             <BrowserRouter>

@@ -6,7 +6,7 @@ interface NavigationItemProps {
   href: string;
   picto: any;
 }
-// btn-primary bg-primary text-white
+
 const NavigationItem: FC<NavigationItemProps> = ({ title, href, picto }) => {
   const location = useLocation();
   const isActive = location.pathname + location.search === href;
