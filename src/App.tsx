@@ -5,6 +5,7 @@ import ProfileCard from "./components/ProfileCard/ProfileCard";
 import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 import About from "./pages/About/About";
 import Panel from "./wrappers/Panel/Panel";
+import ProfilePicture from "./assets/images/profile-picture.jpg";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
@@ -32,7 +33,7 @@ function App() {
         <div className="flex justify-end space-x-4 py-8">
           <ThemeSwitcher currentTheme={theme} onThemeSwitch={onThemeSwitch} />
         </div>
-        <div className="grid-cols-3 md:grid md:gap-8">
+        <div className="grid-cols-3 pt-16 md:grid md:gap-8">
           <div className="col-span-1">
             <ProfileCard
               name="Cédric Wagner"
@@ -40,7 +41,7 @@ function App() {
               email="cedricwagner@free.fr"
               birthday="14/08/1990"
               github="https://github.com/CedricWagner"
-              image=""
+              image={ProfilePicture}
               linkedin="https://www.linkedin.com/in/c%C3%A9dric-wagner-573ab8129/"
               location="Strasbourg"
               role="Développeur Web / Fullstack"

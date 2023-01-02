@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import InnerPanel from "../../wrappers/InnerPanel/InnerPanel";
 import Panel from "../../wrappers/Panel/Panel";
 import InfoItem from "../InfoItem/InfoItem";
@@ -6,6 +6,7 @@ import InfoItemsList from "../InfoItemsList/InfoItemsList";
 import TextBadge from "../TextBadge/TextBadge";
 import PhoneIcon from "@heroicons/react/24/solid/PhoneIcon";
 import AtSymbolIcon from "@heroicons/react/24/solid/AtSymbolIcon";
+import Imgix from "react-imgix";
 
 interface ProfileCardProps {
   name: string;
@@ -29,21 +30,45 @@ const ProfileCard: FC<ProfileCardProps> = ({
   location,
   phone,
   role,
-}) => (
-  <div data-testid="ProfileCard">
-    <Panel>
-      <h1>{name}</h1>
-      <TextBadge>{role}</TextBadge>
-      <InnerPanel>
-        <InfoItemsList
-          items={[
-            <InfoItem picto={<PhoneIcon />} label="Téléphone" value={phone} />,
-            <InfoItem picto={<AtSymbolIcon />} label="Email" value={email} />,
-          ]}
-        />
-      </InnerPanel>
-    </Panel>
-  </div>
-);
+}) => {
+  const pictureClassNames = ["w-[100%]"];
+
+  return (
+    <div data-testid="ProfileCard">
+      <Panel>
+        <div className="m-auto mb-5 w-[250px] max-w-full overflow-hidden rounded-lg md:mt-[-100px]">
+          {!image.includes("https") && (
+            <img
+              src={image}
+              alt="Photo Cédric Wagner"
+              className={pictureClassNames.join(" ")}
+            />
+          )}
+          {image.includes("https") && (
+            <Imgix
+              src={image}
+              width={430}
+              className={pictureClassNames.join(" ")}
+            />
+          )}
+        </div>
+        <h1 className="mb-2 text-center text-2xl font-bold">{name}</h1>
+        <TextBadge>{role}</TextBadge>
+        <InnerPanel>
+          <InfoItemsList
+            items={[
+              <InfoItem
+                picto={<PhoneIcon />}
+                label="Téléphone"
+                value={phone}
+              />,
+              <InfoItem picto={<AtSymbolIcon />} label="Email" value={email} />,
+            ]}
+          />
+        </InnerPanel>
+      </Panel>
+    </div>
+  );
+};
 
 export default ProfileCard;

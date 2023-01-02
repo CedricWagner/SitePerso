@@ -6,8 +6,8 @@ interface InfoItemsListProps {
 
 const InfoItemsList: FC<InfoItemsListProps> = ({ items }) => (
   <div data-testid="InfoItemsList">
-    {items.map((item) => (
-      <div>{item}</div>
+    {items.map((item, key) => (
+      <div key={key}>{item}</div>
     ))}
   </div>
 );
