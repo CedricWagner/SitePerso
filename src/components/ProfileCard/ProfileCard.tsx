@@ -6,6 +6,8 @@ import InfoItemsList from "../InfoItemsList/InfoItemsList";
 import TextBadge from "../TextBadge/TextBadge";
 import PhoneIcon from "@heroicons/react/24/solid/PhoneIcon";
 import AtSymbolIcon from "@heroicons/react/24/solid/AtSymbolIcon";
+import HomeIcon from "@heroicons/react/24/solid/HomeIcon";
+import CalendarIcon from "@heroicons/react/24/solid/CalendarIcon";
 import Imgix from "react-imgix";
 
 interface ProfileCardProps {
@@ -53,7 +55,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
           )}
         </div>
         <h1 className="mb-2 text-center text-2xl font-bold">{name}</h1>
-        <div className="text-center">
+        <div className="mb-8 text-center">
           <TextBadge>{role}</TextBadge>
         </div>
         <InnerPanel>
@@ -65,6 +67,16 @@ const ProfileCard: FC<ProfileCardProps> = ({
                 value={phone}
               />,
               <InfoItem picto={<AtSymbolIcon />} label="Email" value={email} />,
+              <InfoItem
+                picto={<HomeIcon />}
+                label="Localisation"
+                value={location}
+              />,
+              <InfoItem
+                picto={<CalendarIcon />}
+                label="Date de naissance"
+                value={birthday}
+              />,
             ]}
           />
         </InnerPanel>

@@ -33,8 +33,8 @@ function App() {
         <div className="flex justify-end space-x-4 py-8">
           <ThemeSwitcher currentTheme={theme} onThemeSwitch={onThemeSwitch} />
         </div>
-        <div className="grid-cols-3 pt-16 md:grid md:gap-8">
-          <div className="col-span-1">
+        <div className="grid-cols-12 pt-16 md:grid md:gap-8">
+          <div className="col-span-5 xl:col-span-4 2xl:col-span-3">
             <ProfileCard
               name="Cédric Wagner"
               phone="06 82 28 63 65"
@@ -47,7 +47,7 @@ function App() {
               role="Développeur Web / Fullstack"
             />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-7 xl:col-span-8 2xl:col-span-9">
             <BrowserRouter>
               <Navigation />
               <Panel>
