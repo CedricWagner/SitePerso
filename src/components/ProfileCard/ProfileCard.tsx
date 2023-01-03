@@ -53,7 +53,9 @@ const ProfileCard: FC<ProfileCardProps> = ({
           )}
         </div>
         <h1 className="mb-2 text-center text-2xl font-bold">{name}</h1>
-        <TextBadge>{role}</TextBadge>
+        <div className="text-center">
+          <TextBadge>{role}</TextBadge>
+        </div>
         <InnerPanel>
           <InfoItemsList
             items={[
