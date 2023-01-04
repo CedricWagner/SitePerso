@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
 import { useContext } from "react";
 import { GlobalContext } from "../../utils/contexts/Global";
+import CaptchaModal from "../CaptchaModal/CaptchaModal";
+import Modal from "../Modal/Modal";
 
 interface InfoItemProps {
   picto: React.ComponentProps<"svg">;
@@ -16,8 +18,9 @@ const InfoItem: FC<InfoItemProps> = ({
   mustVerify = false,
 }) => {
   const globalContext = useContext(GlobalContext);
+  const [displayModal, setDisplayModal] = useState(false);
   function onClickDisplay() {
-    globalContext?.setVerified(true); // TODO: add captcha
+    setDisplayModal(true);
   }
   return (
     <div data-testid="InfoItem" className="grid grid-cols-12">
@@ -39,6 +42,9 @@ const InfoItem: FC<InfoItemProps> = ({
             </>
           ) : (
             <span>{value}</span>
+          )}
+          {displayModal && (
+            <CaptchaModal onClose={() => setDisplayModal(false)} />
           )}
         </div>
       </div>
