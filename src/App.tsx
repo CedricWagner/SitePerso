@@ -10,6 +10,7 @@ import { GlobalContext, GlobalContextInterface } from "./utils/contexts/Global";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
+  const [isVerified, setVerified] = useState(false);
 
   useEffect(() => {
     if (
@@ -30,7 +31,8 @@ function App() {
 
   const defaultGlobalContext: GlobalContextInterface = {
     lang: "fr",
-    isVerified: false,
+    isVerified: isVerified,
+    setVerified: setVerified,
   };
 
   return (

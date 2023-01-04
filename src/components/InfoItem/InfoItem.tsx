@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { useContext } from "react";
 import { GlobalContext } from "../../utils/contexts/Global";
 
@@ -16,6 +16,9 @@ const InfoItem: FC<InfoItemProps> = ({
   mustVerify = false,
 }) => {
   const globalContext = useContext(GlobalContext);
+  function onClickDisplay() {
+    globalContext?.setVerified(true); // TODO: add captcha
+  }
   return (
     <div data-testid="InfoItem" className="grid grid-cols-12">
       <div className="col-span-2 flex py-2 px-2">{picto}</div>
@@ -24,9 +27,19 @@ const InfoItem: FC<InfoItemProps> = ({
           <label className="block text-sm text-slate-600 dark:text-slate-400">
             {label}
           </label>
-          <span className="">
-            {mustVerify && !globalContext?.isVerified ? "xxx" : value}
-          </span>
+          {mustVerify && !globalContext?.isVerified ? (
+            <>
+              <span>xxx</span>
+              <button
+                className="pl-1 text-sm underline hover:text-primary hover:dark:text-secondary"
+                onClick={onClickDisplay}
+              >
+                (afficher)
+              </button>
+            </>
+          ) : (
+            <span>{value}</span>
+          )}
         </div>
       </div>
     </div>
