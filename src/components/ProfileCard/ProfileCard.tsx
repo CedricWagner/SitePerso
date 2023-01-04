@@ -89,8 +89,14 @@ const ProfileCard: FC<ProfileCardProps> = ({
                 picto={<PhoneIcon />}
                 label="Téléphone"
                 value={phone}
+                mustVerify={true}
               />,
-              <InfoItem picto={<AtSymbolIcon />} label="Email" value={email} />,
+              <InfoItem
+                picto={<AtSymbolIcon />}
+                label="Email"
+                value={email}
+                mustVerify={true}
+              />,
               <InfoItem
                 picto={<HomeIcon />}
                 label="Localisation"
