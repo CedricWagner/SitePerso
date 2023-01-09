@@ -3,10 +3,8 @@ import Modal from "../Modal/Modal";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
-import Panel from "../../wrappers/Panel/Panel";
 import { GlobalContext } from "../../utils/contexts/Global";
 import CheckCircleIcon from "@heroicons/react/24/solid/CheckCircleIcon";
 
