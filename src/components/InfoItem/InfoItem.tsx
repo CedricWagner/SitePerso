@@ -31,15 +31,12 @@ const InfoItem: FC<InfoItemProps> = ({
             {label}
           </label>
           {mustVerify && !globalContext?.isVerified ? (
-            <>
-              <span>xxx</span>
-              <button
-                className="pl-1 text-sm underline hover:text-primary hover:dark:text-secondary"
-                onClick={onClickDisplay}
-              >
-                (afficher)
-              </button>
-            </>
+            <button
+              className="pl-1 text-sm underline hover:text-primary hover:dark:text-secondary"
+              onClick={onClickDisplay}
+            >
+              (afficher)
+            </button>
           ) : (
             <span>{value}</span>
           )}

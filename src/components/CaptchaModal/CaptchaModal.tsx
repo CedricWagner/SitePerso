@@ -8,6 +8,7 @@ import {
 } from "react-simple-captcha";
 import Panel from "../../wrappers/Panel/Panel";
 import { GlobalContext } from "../../utils/contexts/Global";
+import CheckCircleIcon from "@heroicons/react/24/solid/CheckCircleIcon";
 
 interface CaptchaModalProps {
   onClose: () => void;
@@ -16,6 +17,7 @@ interface CaptchaModalProps {
 const CaptchaModal: FC<CaptchaModalProps> = ({ onClose }) => {
   const [text, setText] = useState("");
   const [displayErrorMessage, setDisplayErrorMessage] = useState(false);
+  const [displaySuccessFeedback, setDisplaySuccessFeedback] = useState(false);
   const [loading, setLoading] = useState(false);
   const globalContext = useContext(GlobalContext);
 
@@ -36,8 +38,12 @@ const CaptchaModal: FC<CaptchaModalProps> = ({ onClose }) => {
     setTimeout(() => {
       if (validateCaptcha(value) == true) {
         setDisplayErrorMessage(false);
-        onClose();
-        globalContext?.setVerified(true);
+        setDisplaySuccessFeedback(true);
+        setTimeout(() => {
+          setDisplaySuccessFeedback(false);
+          onClose();
+          globalContext?.setVerified(true);
+        }, 1000);
       } else {
         setDisplayErrorMessage(true);
         setLoading(false);
@@ -71,7 +77,16 @@ const CaptchaModal: FC<CaptchaModalProps> = ({ onClose }) => {
               className="rounded-lg p-2 shadow-lg"
               placeholder="ex: JhGGtFD"
             />
-            <button className="btn btn-dark p-2">Valider</button>
+            <button className="btn btn-dark p-2">
+              Valider
+              <CheckCircleIcon
+                className={`inline text-green-500 transition-all ${
+                  displaySuccessFeedback
+                    ? "ml-2 h-5 w-5 opacity-100"
+                    : "ml-0 h-0 w-0 opacity-0"
+                }`}
+              />
+            </button>
           </form>
           {displayErrorMessage && (
             <p className="text-red-500">

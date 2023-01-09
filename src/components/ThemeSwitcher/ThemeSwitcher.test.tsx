@@ -2,10 +2,11 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import ThemeSwitcher from "./ThemeSwitcher";
+import { vi } from "vitest";
 
 describe("<ThemeSwitcher />", () => {
   test("it should mount", () => {
-    render(<ThemeSwitcher currentTheme="dark" onThemeSwitch={jest.fn} />);
+    render(<ThemeSwitcher currentTheme="dark" onThemeSwitch={vi.fn()} />);
 
     const themeSwitcher = screen.getByRole("button");
 

@@ -5,7 +5,7 @@ import CaptchaModal from "./CaptchaModal";
 
 describe("<CaptchaModal />", () => {
   test("it should mount", () => {
-    render(<CaptchaModal />);
+    render(<CaptchaModal onClose={() => {}} />);
 
     const modal = screen.getByTestId("Modal");
 
