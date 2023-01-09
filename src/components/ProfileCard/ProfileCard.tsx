@@ -90,12 +90,14 @@ const ProfileCard: FC<ProfileCardProps> = ({
                 label="Téléphone"
                 value={phone}
                 mustVerify={true}
+                specificType="phone"
               />,
               <InfoItem
                 picto={<AtSymbolIcon />}
                 label="Email"
                 value={email}
                 mustVerify={true}
+                specificType="email"
               />,
               <InfoItem
                 picto={<HomeIcon />}

@@ -9,6 +9,7 @@ interface InfoItemProps {
   label: string;
   value: string;
   mustVerify?: boolean;
+  specificType?: "phone" | "email";
 }
 
 const InfoItem: FC<InfoItemProps> = ({
@@ -16,12 +17,16 @@ const InfoItem: FC<InfoItemProps> = ({
   picto,
   value,
   mustVerify = false,
+  specificType,
 }) => {
   const globalContext = useContext(GlobalContext);
   const [displayModal, setDisplayModal] = useState(false);
   function onClickDisplay() {
     setDisplayModal(true);
   }
+  const hrefPrefix =
+    specificType && specificType === "email" ? "mailto" : "tel";
+
   return (
     <div data-testid="InfoItem" className="grid grid-cols-12">
       <div className="col-span-2 flex py-2 px-2">{picto}</div>
@@ -38,7 +43,19 @@ const InfoItem: FC<InfoItemProps> = ({
               (afficher)
             </button>
           ) : (
-            <span>{value}</span>
+            <>
+              {specificType ? (
+                <a
+                  href={`${hrefPrefix}:${value}`}
+                  target="_blank"
+                  className="underline"
+                >
+                  {value}
+                </a>
+              ) : (
+                <span>{value}</span>
+              )}
+            </>
           )}
           {displayModal && (
             <CaptchaModal onClose={() => setDisplayModal(false)} />

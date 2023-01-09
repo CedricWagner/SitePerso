@@ -65,7 +65,7 @@ const CaptchaModal: FC<CaptchaModalProps> = ({ onClose }) => {
         >
           <LoadCanvasTemplate reloadText="(Recharger)" reloadColor="#999" />
           <p className="my-4">
-            Merci de saisir le texte affiché ci-dessus dans le champ ci dessous
+            Merci de saisir le texte affiché ci-dessus dans le champ ci-dessous
           </p>
           <form onSubmit={doSubmit} className="flex flex-col">
             <input

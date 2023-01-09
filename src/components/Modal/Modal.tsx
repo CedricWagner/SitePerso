@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { FaCross, FaTimes } from "react-icons/fa";
 
 interface ModalProps {
@@ -8,6 +8,15 @@ interface ModalProps {
 }
 
 const Modal: FC<ModalProps> = ({ title, display, onClose, children }) => {
+  useEffect(() => {
+    document.onkeydown = (e: KeyboardEvent) => {
+      const isEscape = e.key === "Escape" || e.key === "Esc";
+      if (isEscape) {
+        onClose();
+      }
+    };
+  }, []);
+
   return (
     <div data-testid="Modal">
       {display ? (
