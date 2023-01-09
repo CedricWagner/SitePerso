@@ -28,8 +28,10 @@ const InfoItem: FC<InfoItemProps> = ({
     specificType && specificType === "email" ? "mailto" : "tel";
 
   return (
-    <div data-testid="InfoItem" className="grid grid-cols-12">
-      <div className="col-span-2 flex py-2 px-2">{picto}</div>
+    <div data-testid="InfoItem" className="group grid grid-cols-12">
+      <div className="col-span-2 flex py-2 px-2 transition-all group-hover:animate-spin">
+        {picto}
+      </div>
       <div className="col-span-10 flex">
         <div>
           <label className="block text-sm text-slate-600 dark:text-slate-400">
@@ -37,6 +39,7 @@ const InfoItem: FC<InfoItemProps> = ({
           </label>
           {mustVerify && !globalContext?.isVerified ? (
             <button
+              data-testid="InfoItem__button"
               className="pl-1 text-sm underline hover:text-primary hover:dark:text-secondary"
               onClick={onClickDisplay}
             >
@@ -49,11 +52,12 @@ const InfoItem: FC<InfoItemProps> = ({
                   href={`${hrefPrefix}:${value}`}
                   target="_blank"
                   className="underline"
+                  data-testid="InfoItem__type"
                 >
                   {value}
                 </a>
               ) : (
-                <span>{value}</span>
+                <span data-testid="InfoItem__value">{value}</span>
               )}
             </>
           )}
