@@ -15,12 +15,12 @@ const NavigationItem: FC<NavigationItemProps> = ({ title, href, picto }) => {
     <Link
       data-testid="NavigationItem"
       to={href}
-      className={`btn flex h-[7rem] w-[7rem] flex-col items-center justify-center ${
+      className={`btn mb-3 flex items-center justify-center lg:mb-0 lg:h-[7rem] lg:w-[7rem] lg:flex-col ${
         isActive ? "btn-primary" : "dark:btn-dark btn-light"
       }`}
     >
-      <span className="mb-3 block h-8 w-8">{picto}</span>
-      <span>{title}</span>
+      <span className="block h-8 w-8 lg:mb-3">{picto}</span>
+      <span className="pl-3 lg:pl-0">{title}</span>
     </Link>
   );
 };
