@@ -29,7 +29,7 @@ const InfoItem: FC<InfoItemProps> = ({
 
   return (
     <div data-testid="InfoItem" className="group grid grid-cols-12">
-      <div className="col-span-2 flex py-2 px-2 transition-all group-hover:animate-spin">
+      <div className="col-span-2 flex max-h-12 py-2 px-2 transition-all group-hover:animate-spin">
         {picto}
       </div>
       <div className="col-span-10 flex">

@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
-import ProfileCard from "./components/ProfileCard/ProfileCard";
 import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 import About from "./pages/About/About";
 import Panel from "./wrappers/Panel/Panel";
-import ProfilePicture from "./assets/images/profile-picture.jpg";
 import { GlobalContext, GlobalContextInterface } from "./utils/contexts/Global";
 import MenuBurger from "./components/MenuBurger/MenuBurger";
+import ProfileCardBlock from "./pages/ProfileCardBlock/ProfileCardBlock";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
@@ -52,28 +51,16 @@ function App() {
               onToggle={onToggleMenuBurger}
             />
           </div>
-          <div className="grid-cols-12 pt-16 md:grid md:gap-8">
-            <div className="col-span-5 xl:col-span-4 2xl:col-span-3">
-              <ProfileCard
-                name="Cédric Wagner"
-                phone="06 12 31 12 31"
-                email="cedricwagner@fake.mail"
-                birthday="14/08/1990"
-                github="https://github.com/CedricWagner"
-                image={ProfilePicture}
-                linkedin="https://www.linkedin.com/in/c%C3%A9dric-wagner-573ab8129/"
-                location="Strasbourg"
-                role="Développeur Web / Fullstack"
-              />
+          <div className="grid-cols-12 pt-8 md:grid md:gap-8 md:pt-16">
+            <div className="col-span-5 hidden md:block xl:col-span-4 2xl:col-span-3">
+              <ProfileCardBlock />
             </div>
             <div className="col-span-7 xl:col-span-8 2xl:col-span-9">
               <BrowserRouter>
                 <Navigation isMobileMenuOpen={isMobileMenuOpen} />
-                <Panel>
-                  <Routes>
-                    <Route path="/" element={<About />} />
-                  </Routes>
-                </Panel>
+                <Routes>
+                  <Route path="/" element={<About />} />
+                </Routes>
               </BrowserRouter>
             </div>
           </div>

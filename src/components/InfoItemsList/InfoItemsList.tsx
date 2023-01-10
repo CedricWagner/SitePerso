@@ -5,7 +5,7 @@ interface InfoItemsListProps {
 }
 
 const InfoItemsList: FC<InfoItemsListProps> = ({ items }) => (
-  <div data-testid="InfoItemsList">
+  <address data-testid="InfoItemsList" className="not-italic">
     {items.map((item, key) => (
       <div
         key={key}
@@ -14,7 +14,7 @@ const InfoItemsList: FC<InfoItemsListProps> = ({ items }) => (
         {item}
       </div>
     ))}
-  </div>
+  </address>
 );
 
 export default InfoItemsList;
