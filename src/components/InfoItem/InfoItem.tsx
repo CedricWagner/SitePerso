@@ -34,9 +34,9 @@ const InfoItem: FC<InfoItemProps> = ({
       </div>
       <div className="col-span-10 flex">
         <div>
-          <label className="block text-sm text-slate-600 dark:text-slate-400">
+          <span className="block text-sm text-slate-600 dark:text-slate-400">
             {label}
-          </label>
+          </span>
           {mustVerify && !globalContext?.isVerified ? (
             <button
               data-testid="InfoItem__button"

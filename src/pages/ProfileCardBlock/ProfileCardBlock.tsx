@@ -7,8 +7,8 @@ interface ProfileCardBlockProps {}
 const ProfileCardBlock: FC<ProfileCardBlockProps> = () => (
   <ProfileCard
     name="Cédric Wagner"
-    phone="06 12 31 12 31"
-    email="cedricwagner@fake.mail"
+    phone={import.meta.env.VITE_PROFILE_PHONE}
+    email={import.meta.env.VITE_PROFILE_EMAIL}
     birthday="14/08/1990"
     github="https://github.com/CedricWagner"
     image={ProfilePicture}
