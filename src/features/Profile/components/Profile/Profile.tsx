@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import ProfileCard from "../../components/ProfileCard/ProfileCard";
+import ProfileCard from "../ProfileCard/ProfileCard";
 import ProfilePicture from "../../assets/images/profile-picture.jpg";
 
-interface ProfileCardBlockProps {}
+interface ProfileProps {}
 
-const ProfileCardBlock: FC<ProfileCardBlockProps> = () => (
+export const Profile: FC<ProfileProps> = () => (
   <ProfileCard
     name="Cédric Wagner"
     phone={import.meta.env.VITE_PROFILE_PHONE}
@@ -17,5 +17,3 @@ const ProfileCardBlock: FC<ProfileCardBlockProps> = () => (
     role="Développeur Web / Fullstack"
   />
 );
-
-export default ProfileCardBlock;

@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
-import About from "./pages/About/About";
-import Panel from "./wrappers/Panel/Panel";
+import About from "./features/About/About";
 import { GlobalContext, GlobalContextInterface } from "./utils/contexts/Global";
 import MenuBurger from "./components/MenuBurger/MenuBurger";
-import ProfileCardBlock from "./pages/ProfileCardBlock/ProfileCardBlock";
+import { Profile } from "./features/Profile";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
@@ -53,7 +52,7 @@ function App() {
           </div>
           <div className="grid-cols-12 pt-8 md:grid md:gap-8 md:pt-16">
             <div className="col-span-5 hidden md:block xl:col-span-4 2xl:col-span-3">
-              <ProfileCardBlock />
+              <Profile />
             </div>
             <div className="col-span-7 xl:col-span-8 2xl:col-span-9">
               <BrowserRouter>

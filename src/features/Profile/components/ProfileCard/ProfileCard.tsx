@@ -1,9 +1,9 @@
 import { FC } from "react";
-import InnerPanel from "../../wrappers/InnerPanel/InnerPanel";
-import Panel from "../../wrappers/Panel/Panel";
-import InfoItem from "../InfoItem/InfoItem";
-import InfoItemsList from "../InfoItemsList/InfoItemsList";
-import TextBadge from "../TextBadge/TextBadge";
+import InnerPanel from "@/wrappers/InnerPanel/InnerPanel";
+import Panel from "@/wrappers/Panel/Panel";
+import InfoItem from "@/components/InfoItem/InfoItem";
+import InfoItemsList from "@/components/InfoItemsList/InfoItemsList";
+import TextBadge from "@/components/TextBadge/TextBadge";
 import PhoneIcon from "@heroicons/react/24/solid/PhoneIcon";
 import AtSymbolIcon from "@heroicons/react/24/solid/AtSymbolIcon";
 import HomeIcon from "@heroicons/react/24/solid/HomeIcon";
@@ -11,8 +11,8 @@ import CalendarIcon from "@heroicons/react/24/solid/CalendarIcon";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import Imgix from "react-imgix";
-import PictoButtonsList from "../PictoButtonsList/PictoButtonsList";
-import PictoButton from "../PictoButton/PictoButton";
+import PictoButtonsList from "@/components/PictoButtonsList/PictoButtonsList";
+import PictoButton from "@/components/PictoButton/PictoButton";
 
 interface ProfileCardProps {
   name: string;
