@@ -15,4 +15,19 @@
   .btn-light {
     @apply bg-slate-200 text-dark hover:bg-opacity-75 focus:ring-slate-200;
   }
+  .text-editor a {
+    @apply text-primary underline dark:text-secondary;
+  }
+  .text-editor ul {
+    @apply ml-5 list-disc;
+  }
+  .text-editor li {
+    @apply list-item;
+  }
+  .text-editor ol {
+    @apply ml-5 list-decimal;
+  }
+  .text-editor pre {
+    @apply rounded-xl bg-primary p-2 text-white;
+  }
 }

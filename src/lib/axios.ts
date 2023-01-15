@@ -3,6 +3,9 @@ import Axios from "axios";
 
 export const axios = Axios.create({
   baseURL: API_URL + "/api",
+  headers: {
+    accept: "application/json",
+  },
 });
 
 axios.interceptors.response.use(

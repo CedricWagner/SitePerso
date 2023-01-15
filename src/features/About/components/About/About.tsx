@@ -29,7 +29,7 @@ export const About: FC<AboutProps> = () => {
     );
   }
 
-  if (!query?.data)
+  if (!query?.data || query?.data?.length === 0)
     return (
       <div data-testid="About">
         <Panel>
@@ -38,6 +38,7 @@ export const About: FC<AboutProps> = () => {
       </div>
     );
 
+  const data = query.data[0];
   return (
     <div data-testid="About">
       <div className="block md:hidden">
@@ -45,9 +46,11 @@ export const About: FC<AboutProps> = () => {
       </div>
       <Panel>
         <PageTitle>
-          <DangerousHtmlContainer html={query.data.title} />
+          <DangerousHtmlContainer html={data.title} />
         </PageTitle>
-        <DangerousHtmlContainer html={query.data.content} />
+        <div className="text-editor">
+          <DangerousHtmlContainer html={data.content} />
+        </div>
       </Panel>
     </div>
   );

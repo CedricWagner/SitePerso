@@ -7,10 +7,10 @@ import { ExtractFnReturnType, QueryConfig } from "@/lib/react-query";
 type AboutContent = {
   title: string;
   content: string;
-};
+}[];
 
 export const getAboutUrl = (lang: lang = "fr"): string => {
-  return `/${lang}/about.php`;
+  return `/text_blocks?lang.slug=${lang}&slug=about`;
 };
 
 export const getAbout = (lang: lang = "fr"): Promise<AboutContent> => {
