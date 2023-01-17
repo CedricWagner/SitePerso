@@ -8,6 +8,7 @@ import MenuBurger from "./components/MenuBurger/MenuBurger";
 import { Profile } from "./features/Profile";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
+import { Experiences } from "./features/Experiences";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
@@ -65,6 +66,7 @@ function App() {
                   <Navigation isMobileMenuOpen={isMobileMenuOpen} />
                   <Routes>
                     <Route path="/" element={<About />} />
+                    <Route path="/experiences" element={<Experiences />} />
                   </Routes>
                 </BrowserRouter>
               </div>

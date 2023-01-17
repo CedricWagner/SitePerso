@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "organization": "Last experience",
+    "type": "CDI",
+    "duration": "3 ans",
+    "startDate": "2020-05-18T00:00:00+00:00",
+    "role": "Lead dev",
+    "description": "<div>Mise en place de solution ect...</div>",
+    "lang": {
+      "id": 1,
+      "name": "Fran\u00e7ais",
+      "slug": "fr",
+      "isDefault": true,
+      "__isCloning": false
+    }
+  },
+  {
+    "id": 2,
+    "organization": "Ataris",
+    "type": "CDI",
+    "duration": "1 an",
+    "startDate": "2018-06-07T00:00:00+00:00",
+    "role": "Consultant",
+    "description": "<div><p>Consulting...</p></div>",
+    "lang": {
+      "id": 1,
+      "name": "Fran\u00e7ais",
+      "slug": "fr",
+      "isDefault": true,
+      "__isCloning": false
+    }
+  }
+]

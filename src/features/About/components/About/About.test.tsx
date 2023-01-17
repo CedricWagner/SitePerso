@@ -6,7 +6,6 @@ import { API_URL } from "@/config";
 
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import { getAboutUrl } from "../../api/getAbout";
 import mock from "../../mock/getAbout.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";

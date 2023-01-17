@@ -2,14 +2,14 @@ import DangerousHtmlContainer from "@/components/DangerousHtmlContainer/Dangerou
 import React, { FC } from "react";
 import { Experience as ExperienceType } from "../../types";
 
-const Experience: FC<ExperienceType> = ({
+export const Item: FC<ExperienceType> = ({
   organization,
   type,
   duration,
   role,
   description,
 }) => (
-  <li data-testid="Experience">
+  <li data-testid="ExperienceItem">
     <h4 className="text-lg font-bold">{organization}</h4>
     <span>{type}</span>
     <span>{duration}</span>
@@ -17,5 +17,3 @@ const Experience: FC<ExperienceType> = ({
     <DangerousHtmlContainer html={description} className="text-editor" />
   </li>
 );
-
-export default Experience;
