@@ -23,4 +23,29 @@ describe("<DangerousHtmlContainer />", () => {
 
     expect(dangerousHtmlContainer.innerHTML).toBe("lorem <b>ipsum</b>");
   });
+
+  test("it should have the correct class names", () => {
+    render(
+      <DangerousHtmlContainer
+        html={`lorem <b onmouseover="alert('mouseover');">ipsum</b>`}
+        className="test"
+      />
+    );
+
+    const dangerousHtmlContainer = screen.getByTestId("DangerousHtmlContainer");
+
+    expect(dangerousHtmlContainer).toHaveClass("test");
+  });
+
+  test("it should handle the absence of classes", () => {
+    render(
+      <DangerousHtmlContainer
+        html={`lorem <b onmouseover="alert('mouseover');">ipsum</b>`}
+      />
+    );
+
+    const dangerousHtmlContainer = screen.getByTestId("DangerousHtmlContainer");
+
+    expect(dangerousHtmlContainer.className).toBe("");
+  });
 });

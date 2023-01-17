@@ -1,4 +1,15 @@
-{
-  "title": "Mock Présentation",
-  "content": "<p>Bonjour...</p><p class=\"mb-4\">Paragraphe 2...</p><p>Suivre <a href=\"./\">ce lien</a>"
-}
+[
+  {
+    "id": 1,
+    "slug": "about",
+    "title": "Mock Présentation",
+    "content": "<div><em>Titre</em> 1<br><br><a href=\"http://test.com\">Lien</a>... <strong>gras</strong></div><div><del>strike </del>&nbsp;as</div><pre>code</pre><div><br></div><ul><li>Liste</li><li>3</li><li>2</li></ul><div><br></div><ol><li>1</li><li>2</li><li>3</li></ol>",
+    "lang": {
+      "id": 1,
+      "name": "Fran\u00e7ais",
+      "slug": "fr",
+      "isDefault": true,
+      "__isCloning": false
+    }
+  }
+]

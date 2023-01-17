@@ -48,9 +48,7 @@ export const About: FC<AboutProps> = () => {
         <PageTitle>
           <DangerousHtmlContainer html={data.title} />
         </PageTitle>
-        <div className="text-editor">
-          <DangerousHtmlContainer html={data.content} />
-        </div>
+        <DangerousHtmlContainer html={data.content} className="text-editor" />
       </Panel>
     </div>
   );

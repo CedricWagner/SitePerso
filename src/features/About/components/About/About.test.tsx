@@ -12,7 +12,7 @@ import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
 
 const aboutResponseFr = rest.get(
-  API_URL + "/api" + getAboutUrl("fr"),
+  API_URL + "/api/text_blocks",
   (req, res, ctx) => {
     return res(ctx.json(mock));
   }
