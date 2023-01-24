@@ -1,6 +1,5 @@
 import { FC, useContext } from "react";
 import Panel from "@/wrappers/Panel/Panel";
-import { Profile } from "@/features/Profile";
 import { useExperiences } from "../../api/getExperiences";
 import {
   getLangFromGlobalContext,
@@ -10,6 +9,8 @@ import Waiting from "@/components/Waiting/Waiting";
 import UnderContruction from "@/components/UnderContruction/UnderContruction";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import { Item } from "../Item/Item";
+import PanelWaiting from "@/components/PanelWaiting/PanelWaiting";
+import PanelUnderConstruction from "@/components/PanelUnderConstruction/PanelUnderConstruction";
 
 interface ExperiencesProps {}
 
@@ -21,23 +22,11 @@ export const Experiences: FC<ExperiencesProps> = () => {
   });
 
   if (query.isLoading) {
-    return (
-      <div data-testid="Experiences">
-        <Panel>
-          <Waiting size="lg" isInline={false} />
-        </Panel>
-      </div>
-    );
+    return <PanelWaiting />;
   }
 
   if (!query?.data || query?.data?.length === 0)
-    return (
-      <div data-testid="Experiences">
-        <Panel>
-          <UnderContruction />
-        </Panel>
-      </div>
-    );
+    return <PanelUnderConstruction />;
 
   return (
     <div data-testid="Experiences">

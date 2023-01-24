@@ -6,11 +6,10 @@ import {
   getLangFromGlobalContext,
   GlobalContext,
 } from "@/utils/contexts/Global";
-import { FaSpinner } from "react-icons/fa";
-import Waiting from "@/components/Waiting/Waiting";
 import UnderContruction from "@/components/UnderContruction/UnderContruction";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import DangerousHtmlContainer from "@/components/DangerousHtmlContainer/DangerousHtmlContainer";
+import PanelWaiting from "@/components/PanelWaiting/PanelWaiting";
 
 interface AboutProps {}
 
@@ -20,23 +19,10 @@ export const About: FC<AboutProps> = () => {
   const query = useAbout({ lang: getLangFromGlobalContext(globalContext) });
 
   if (query.isLoading) {
-    return (
-      <div data-testid="About">
-        <Panel>
-          <Waiting size="lg" isInline={false} />
-        </Panel>
-      </div>
-    );
+    return <PanelWaiting />;
   }
 
-  if (!query?.data || query?.data?.length === 0)
-    return (
-      <div data-testid="About">
-        <Panel>
-          <UnderContruction />
-        </Panel>
-      </div>
-    );
+  if (!query?.data || query?.data?.length === 0) return <UnderContruction />;
 
   const data = query.data[0];
   return (

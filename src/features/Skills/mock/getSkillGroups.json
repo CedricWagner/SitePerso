@@ -1,0 +1,28 @@
+[
+  {
+    "id": 12,
+    "name": "Languages",
+    "lang": {
+      "id": 17,
+      "name": "French",
+      "slug": "fr",
+      "isDefault": true,
+      "__isCloning": false
+    },
+    "weight": 1,
+    "skills": ["/api/skills/5", "/api/skills/6"]
+  },
+  {
+    "id": 13,
+    "name": "Frameworks",
+    "lang": {
+      "id": 17,
+      "name": "French",
+      "slug": "fr",
+      "isDefault": true,
+      "__isCloning": false
+    },
+    "weight": 2,
+    "skills": ["/api/skills/7"]
+  }
+]

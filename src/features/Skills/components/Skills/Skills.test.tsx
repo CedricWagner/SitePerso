@@ -1,23 +1,23 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { About } from "./About";
+import Skills from "./Skills";
 import { API_URL } from "@/config";
 
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import mock from "../../mock/getAbout.json";
+import mock from "../../mock/getSkillGroups.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
 
-const aboutResponseFr = rest.get(
-  API_URL + "/api/text_blocks",
+const skillGroupsResponseFr = rest.get(
+  API_URL + "/api/skill_groups",
   (req, res, ctx) => {
     return res(ctx.json(mock));
   }
 );
 
-const server = setupServer(aboutResponseFr);
+const server = setupServer(skillGroupsResponseFr);
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -25,24 +25,32 @@ afterAll(() => server.close());
 
 const elem = (
   <QueryClientProvider client={queryClient}>
-    <About />
+    <Skills />
   </QueryClientProvider>
 );
 
-describe("<About />", () => {
+describe("<Skills />", () => {
   test("it should mount", () => {
     render(elem);
 
-    const about = screen.getByTestId("PanelWaiting");
+    const skills = screen.getByTestId("PanelWaiting");
 
-    expect(about).toBeInTheDocument();
+    expect(skills).toBeInTheDocument();
   });
 
-  test("it should display the title", async () => {
+  test("it should display 2 items", async () => {
     render(elem);
 
-    const title = screen.getByText("Mock Présentation");
+    const skills = await screen.getAllByRole("listitem");
 
-    expect(title).toBeInTheDocument();
+    expect(skills).toHaveLength(2);
+  });
+
+  test('it should display the "Languages" group first', () => {
+    render(elem);
+
+    const skills = screen.getAllByRole("listitem");
+
+    expect(skills[0]).toHaveTextContent("Languages");
   });
 });

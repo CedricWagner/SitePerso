@@ -9,6 +9,7 @@ import { Profile } from "./features/Profile";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
 import { Experiences } from "./features/Experiences";
+import Skills from "./features/Skills/components/Skills/Skills";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
@@ -67,6 +68,7 @@ function App() {
                   <Routes>
                     <Route path="/" element={<About />} />
                     <Route path="/experiences" element={<Experiences />} />
+                    <Route path="/competences" element={<Skills />} />
                   </Routes>
                 </BrowserRouter>
               </div>
