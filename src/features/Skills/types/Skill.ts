@@ -3,7 +3,7 @@ import { SkillGroup } from "./SkillGroup";
 export type Skill = {
   name: string;
   weight: number;
-  group: SkillGroup;
+  skillGroup: SkillGroup;
   rating: number;
   details: string;
 };

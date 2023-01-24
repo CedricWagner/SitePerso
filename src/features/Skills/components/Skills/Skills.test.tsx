@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import Skills from "./Skills";
+import { Skills } from "./Skills";
 import { API_URL } from "@/config";
 
 import { rest } from "msw";

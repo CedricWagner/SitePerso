@@ -32,7 +32,7 @@ export const Experiences: FC<ExperiencesProps> = () => {
     <div data-testid="Experiences">
       <Panel>
         <PageTitle>Mes expériences</PageTitle>
-        <ul>
+        <ul className="grid-cols-2 gap-6 xl:grid">
           {query.data.map((item, key) => (
             <Item
               description={item.description}

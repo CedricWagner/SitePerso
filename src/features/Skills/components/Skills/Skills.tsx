@@ -8,10 +8,11 @@ import {
 import Panel from "@/wrappers/Panel/Panel";
 import React, { FC, useContext } from "react";
 import { useSkillGroups } from "../../api/getSkillGroups";
+import { SkillGroup } from "../SkillGroup/SkillGroup";
 
 interface SkillsProps {}
 
-const Skills: FC<SkillsProps> = () => {
+export const Skills: FC<SkillsProps> = () => {
   const globalContext = useContext(GlobalContext);
 
   const query = useSkillGroups({
@@ -29,14 +30,12 @@ const Skills: FC<SkillsProps> = () => {
     <div data-testid="Skills">
       <Panel>
         <PageTitle>Mes compétences</PageTitle>
-        <ul>
+        <ul className="grid-cols-2 gap-6 lg:grid">
           {query.data.map((item, key) => (
-            <li key={key}>{item.name}</li>
+            <SkillGroup name={item.name} id={item.id} key={key} />
           ))}
         </ul>
       </Panel>
     </div>
   );
 };
-
-export default Skills;
