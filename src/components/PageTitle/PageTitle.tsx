@@ -3,9 +3,9 @@ import React, { FC } from "react";
 interface PageTitleProps {}
 
 const PageTitle: FC<PageTitleProps> = ({ children }) => (
-  <h2 data-testid="PageTitle" className="mb-4 text-xl">
+  <h1 data-testid="PageTitle" className="mb-4 text-2xl font-bold">
     {children}
-  </h2>
+  </h1>
 );
 
 export default PageTitle;

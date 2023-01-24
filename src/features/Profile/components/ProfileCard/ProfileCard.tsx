@@ -58,7 +58,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
             />
           )}
         </div>
-        <h1 className="mb-2 text-center text-2xl font-bold">{name}</h1>
+        <h2 className="mb-2 text-center text-2xl font-bold">{name}</h2>
         <div className="mb-4 text-center">
           <TextBadge>{role}</TextBadge>
         </div>
