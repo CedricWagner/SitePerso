@@ -1,0 +1,32 @@
+[
+  {
+    "id": 5,
+    "name": "PHP",
+    "skillGroup": "/api/skill_groups/12",
+    "rating": 9,
+    "details": "Maitrise de PHP, jusqu'\u00e0 PHP 8.x",
+    "weight": 1,
+    "lang": {
+      "id": 17,
+      "name": "French",
+      "slug": "fr",
+      "isDefault": true,
+      "__isCloning": false
+    }
+  },
+  {
+    "id": 6,
+    "name": "Javascript",
+    "skillGroup": "/api/skill_groups/12",
+    "rating": 8,
+    "details": "Bonne maitrise de Javascript, quelques lacunes",
+    "weight": 2,
+    "lang": {
+      "id": 17,
+      "name": "French",
+      "slug": "fr",
+      "isDefault": true,
+      "__isCloning": false
+    }
+  }
+]

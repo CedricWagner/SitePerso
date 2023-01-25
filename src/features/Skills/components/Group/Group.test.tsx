@@ -1,27 +1,20 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { Skills } from "./Skills";
-import { API_URL } from "@/config";
+import { Group } from "./Group";
 
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import mock from "../../mock/getSkillGroups.json";
+import mock from "../../mock/getSkills.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
-
-const skillGroupsResponseFr = rest.get(
-  API_URL + "/api/skill_groups",
-  (req, res, ctx) => {
-    return res(ctx.json(mock));
-  }
-);
+import { API_URL } from "@/config";
 
 const skillsResponseFr = rest.get(API_URL + "/api/skills", (req, res, ctx) => {
   return res(ctx.json(mock));
 });
 
-const server = setupServer(skillGroupsResponseFr, skillsResponseFr);
+const server = setupServer(skillsResponseFr);
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -29,25 +22,25 @@ afterAll(() => server.close());
 
 const elem = (
   <QueryClientProvider client={queryClient}>
-    <Skills />
+    <Group name="Group test" id={1} />
   </QueryClientProvider>
 );
 
-describe("<Skills />", () => {
-  test("it should mount", () => {
+describe("<Group />", () => {
+  test("it should mount", async () => {
     render(elem);
 
-    const skills = screen.getByTestId("PanelWaiting");
+    const skillGroup = await screen.findByTestId("SkillGroup");
 
-    expect(skills).toBeInTheDocument();
+    expect(skillGroup).toBeInTheDocument();
   });
 
   test("it should display 2 items", async () => {
     render(elem);
 
-    const skills = await screen.findAllByTestId("SkillGroup");
+    const items = await screen.findAllByTestId("SkillItem");
 
-    expect(skills).toHaveLength(2);
+    expect(items).toHaveLength(2);
   });
 
   test('it should display the "Languages" group first', async () => {
@@ -55,6 +48,6 @@ describe("<Skills />", () => {
 
     const skills = await screen.findAllByRole("listitem");
 
-    expect(skills[0]).toHaveTextContent("Languages");
+    expect(skills[0]).toHaveTextContent("PHP");
   });
 });

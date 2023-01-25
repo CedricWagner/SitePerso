@@ -6,10 +6,10 @@ import {
   getLangFromGlobalContext,
   GlobalContext,
 } from "@/utils/contexts/Global";
-import UnderContruction from "@/components/UnderContruction/UnderContruction";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import DangerousHtmlContainer from "@/components/DangerousHtmlContainer/DangerousHtmlContainer";
 import PanelWaiting from "@/components/PanelWaiting/PanelWaiting";
+import PanelUnderConstruction from "@/components/PanelUnderConstruction/PanelUnderConstruction";
 
 interface AboutProps {}
 
@@ -22,7 +22,8 @@ export const About: FC<AboutProps> = () => {
     return <PanelWaiting />;
   }
 
-  if (!query?.data || query?.data?.length === 0) return <UnderContruction />;
+  if (!query?.data || query?.data?.length === 0)
+    return <PanelUnderConstruction />;
 
   const data = query.data[0];
   return (

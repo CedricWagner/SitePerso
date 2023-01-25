@@ -8,7 +8,7 @@ import {
 import Panel from "@/wrappers/Panel/Panel";
 import React, { FC, useContext } from "react";
 import { useSkillGroups } from "../../api/getSkillGroups";
-import { SkillGroup } from "../SkillGroup/SkillGroup";
+import { Group } from "../Group/Group";
 
 interface SkillsProps {}
 
@@ -32,7 +32,7 @@ export const Skills: FC<SkillsProps> = () => {
         <PageTitle>Mes compétences</PageTitle>
         <ul className="grid-cols-2 gap-6 lg:grid">
           {query.data.map((item, key) => (
-            <SkillGroup name={item.name} id={item.id} key={key} />
+            <Group name={item.name} id={item.id} key={key} />
           ))}
         </ul>
       </Panel>

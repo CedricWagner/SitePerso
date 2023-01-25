@@ -1,2 +1,2 @@
 export * from "./components/Skills/Skills";
-export * from "./components/SkillGroup/SkillGroup";
+export * from "./components/Group/Group";
