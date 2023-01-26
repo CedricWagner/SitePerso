@@ -5,8 +5,6 @@ import {
   getLangFromGlobalContext,
   GlobalContext,
 } from "@/utils/contexts/Global";
-import Waiting from "@/components/Waiting/Waiting";
-import UnderContruction from "@/components/UnderContruction/UnderContruction";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import { Item } from "../Item/Item";
 import PanelWaiting from "@/components/PanelWaiting/PanelWaiting";
