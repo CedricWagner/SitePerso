@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "name": "Musique",
+    "description": "<p>Ecoute et <i>composition</i></p>",
+    "weight": 1,
+    "lang": {
+      "id": 25,
+      "name": "French",
+      "slug": "fr",
+      "isDefault": true,
+      "__isCloning": false
+    }
+  },
+  {
+    "id": 2,
+    "name": "Escrime",
+    "description": "<p>...</p>",
+    "weight": 2,
+    "lang": {
+      "id": 25,
+      "name": "French",
+      "slug": "fr",
+      "isDefault": true,
+      "__isCloning": false
+    }
+  }
+]

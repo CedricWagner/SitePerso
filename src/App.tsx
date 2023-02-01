@@ -11,6 +11,7 @@ import { queryClient } from "@/lib/react-query";
 import { Experiences } from "./features/Experiences";
 import { Skills } from "./features/Skills";
 import { Trainings } from "./features/Trainings";
+import { Hobbies } from "./features/Hobbies";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
@@ -71,6 +72,7 @@ function App() {
                     <Route path="/experiences" element={<Experiences />} />
                     <Route path="/competences" element={<Skills />} />
                     <Route path="/formations" element={<Trainings />} />
+                    <Route path="/loisirs" element={<Hobbies />} />
                   </Routes>
                 </BrowserRouter>
               </div>
