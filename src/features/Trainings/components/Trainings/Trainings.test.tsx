@@ -9,11 +9,13 @@ import mock from "../../mock/getTrainings.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
 import { API_URL } from "@/config";
-import Item from "../Item/Item";
 
-const itemsResponseFr = rest.get(API_URL + "/api/items", (req, res, ctx) => {
-  return res(ctx.json(mock));
-});
+const itemsResponseFr = rest.get(
+  API_URL + "/api/trainings",
+  (req, res, ctx) => {
+    return res(ctx.json(mock));
+  }
+);
 
 const server = setupServer(itemsResponseFr);
 

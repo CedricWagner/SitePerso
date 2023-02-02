@@ -32,7 +32,7 @@ export const Trainings: FC<TrainingsProps> = () => {
         <PageTitle>Mes formations</PageTitle>
         <ul className="grid-cols-2 gap-6 xl:grid">
           {query.data.map((item, key) => (
-            <Item {...item} />
+            <Item key={key} {...item} />
           ))}
         </ul>
       </Panel>

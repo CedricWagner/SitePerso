@@ -3,7 +3,6 @@ import Modal from "../Modal/Modal";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { GlobalContext } from "../../utils/contexts/Global";
 import { postVerifyCaptcha } from "@/api/postVerifyCaptcha";
-import { CaptchaVerifyResponse } from "@/types";
 
 interface CaptchaModalProps {
   onClose: () => void;
@@ -54,14 +53,14 @@ const CaptchaModal: FC<CaptchaModalProps> = ({ onClose }) => {
           {hasError && (
             <p className="text-red-500">
               Une erreur est survenue lors de la validation du Captcha. Si
-              l'erreur se reproduit, merci de privilégier{" "}
+              l'erreur se reproduit, merci de privilégier
               <a
                 href="https://www.linkedin.com/in/c%C3%A9dric-wagner-573ab8129/"
                 target={"_blank"}
                 className="underline"
               >
                 linkedIn
-              </a>{" "}
+              </a>
               pour me contacter
             </p>
           )}
