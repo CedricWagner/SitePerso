@@ -1,19 +1,30 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import ProfilePicture from "../../assets/images/profile-picture.jpg";
+import {
+  getLangFromGlobalContext,
+  GlobalContext,
+} from "@/utils/contexts/Global";
+import { useProfileInformation } from "../../api/getProfileInformation";
+import Waiting from "@/components/Waiting/Waiting";
+import PanelWaiting from "@/components/PanelWaiting/PanelWaiting";
+import PanelUnderConstruction from "@/components/PanelUnderConstruction/PanelUnderConstruction";
 
 interface ProfileProps {}
 
-export const Profile: FC<ProfileProps> = () => (
-  <ProfileCard
-    name="Cédric Wagner"
-    phone={import.meta.env.VITE_PROFILE_PHONE}
-    email={import.meta.env.VITE_PROFILE_EMAIL}
-    birthday="14/08/1990"
-    github="https://github.com/CedricWagner"
-    image={ProfilePicture}
-    linkedin="https://www.linkedin.com/in/c%C3%A9dric-wagner-573ab8129/"
-    location="Strasbourg"
-    role="Développeur Web / Fullstack"
-  />
-);
+export const Profile: FC<ProfileProps> = () => {
+  const globalContext = useContext(GlobalContext);
+
+  const query = useProfileInformation({
+    lang: getLangFromGlobalContext(globalContext),
+  });
+
+  if (query.isLoading) {
+    return <PanelWaiting />;
+  }
+
+  if (!query?.data || query?.data?.length === 0)
+    return <PanelUnderConstruction />;
+
+  return <ProfileCard info={query.data} image={ProfilePicture} />;
+};
