@@ -1,0 +1,36 @@
+[
+  {
+    "id": 11,
+    "slug": "birthday",
+    "value": "14/08/1990",
+    "langs": [{ "id": 33, "name": "French", "slug": "fr", "isDefault": true }],
+    "private": true
+  },
+  {
+    "id": 13,
+    "slug": "github",
+    "value": "https://github.com/CedricWagner",
+    "langs": [
+      { "id": 33, "name": "French", "slug": "fr", "isDefault": true },
+      { "id": 34, "name": "English", "slug": "en", "isDefault": false }
+    ],
+    "private": false
+  },
+  {
+    "id": 10,
+    "slug": "name",
+    "value": "C\u00e9dric Wagner",
+    "langs": [
+      { "id": 33, "name": "French", "slug": "fr", "isDefault": true },
+      { "id": 34, "name": "English", "slug": "en", "isDefault": false }
+    ],
+    "private": false
+  },
+  {
+    "id": 14,
+    "slug": "role",
+    "value": "D\u00e9veloppeur Web / Fullstack",
+    "langs": [{ "id": 33, "name": "French", "slug": "fr", "isDefault": true }],
+    "private": false
+  }
+]

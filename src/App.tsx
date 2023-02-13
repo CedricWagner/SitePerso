@@ -12,6 +12,7 @@ import { Experiences } from "./features/Experiences";
 import { Skills } from "./features/Skills";
 import { Trainings } from "./features/Trainings";
 import { Hobbies } from "./features/Hobbies";
+import { getVerifyCaptcha } from "./api/getVerifyCaptcha";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
@@ -28,6 +29,14 @@ function App() {
     } else {
       document.documentElement.classList.remove("dark");
     }
+
+    getVerifyCaptcha()
+      .then((response) => {
+        setVerified(response.result);
+      })
+      .catch(() => {
+        setVerified(false);
+      });
   }, [theme]);
 
   function onThemeSwitch(theme: string) {

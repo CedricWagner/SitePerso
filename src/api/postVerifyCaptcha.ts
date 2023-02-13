@@ -10,7 +10,11 @@ export const getVerifyCaptchaUrl = (): string => {
 export const postVerifyCaptcha = (
   clientResponse: string
 ): Promise<CaptchaVerifyResponse> => {
-  return axios.post(API_URL + getVerifyCaptchaUrl(), {
-    clientResponse: clientResponse,
-  });
+  return axios.post(
+    API_URL + getVerifyCaptchaUrl(),
+    {
+      clientResponse: clientResponse,
+    },
+    { withCredentials: true }
+  );
 };

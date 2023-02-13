@@ -19,15 +19,17 @@ type QueryFnType = typeof getProfileInformation;
 
 type UseProfileInformationOptions = {
   lang: lang;
+  isVerified: boolean;
   config?: QueryConfig<QueryFnType>;
 };
 
 export const useProfileInformation = ({
   lang,
+  isVerified,
   config,
 }: UseProfileInformationOptions) => {
   return useQuery<ExtractFnReturnType<QueryFnType>>({
-    queryKey: ["ProfileInformation", lang],
+    queryKey: ["ProfileInformation", lang, isVerified],
     queryFn: () => getProfileInformation(lang),
     ...config,
   });

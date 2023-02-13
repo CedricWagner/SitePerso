@@ -1,4 +1,4 @@
-import React, { FC, useContext } from "react";
+import React, { FC, useContext, useEffect } from "react";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import ProfilePicture from "../../assets/images/profile-picture.jpg";
 import {
@@ -6,7 +6,6 @@ import {
   GlobalContext,
 } from "@/utils/contexts/Global";
 import { useProfileInformation } from "../../api/getProfileInformation";
-import Waiting from "@/components/Waiting/Waiting";
 import PanelWaiting from "@/components/PanelWaiting/PanelWaiting";
 import PanelUnderConstruction from "@/components/PanelUnderConstruction/PanelUnderConstruction";
 
@@ -17,6 +16,7 @@ export const Profile: FC<ProfileProps> = () => {
 
   const query = useProfileInformation({
     lang: getLangFromGlobalContext(globalContext),
+    isVerified: globalContext ? globalContext.isVerified : false,
   });
 
   if (query.isLoading) {

@@ -7,6 +7,7 @@ import { API_URL } from "@/config";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 import mock from "../../mock/getAbout.json";
+import mockGetProfileInformations from "@/features/Profile/mock/getProfileInformations.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
 
@@ -17,7 +18,14 @@ const aboutResponseFr = rest.get(
   }
 );
 
-const server = setupServer(aboutResponseFr);
+const ProfileResponseFr = rest.get(
+  API_URL + "/api/profile_informations",
+  (req, res, ctx) => {
+    return res(ctx.json(mockGetProfileInformations));
+  }
+);
+
+const server = setupServer(aboutResponseFr, ProfileResponseFr);
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());

@@ -6,6 +6,7 @@ export const axios = Axios.create({
   headers: {
     accept: "application/json",
   },
+  withCredentials: true,
 });
 
 axios.interceptors.response.use(

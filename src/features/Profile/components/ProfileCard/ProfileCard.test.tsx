@@ -8,15 +8,11 @@ describe("<ProfileCard />", () => {
   test("it should mount", () => {
     render(
       <ProfileCard
-        name="Cédric Wagner"
-        phone="06 82 28 63 65"
-        email="cedricwagner@free.fr"
-        birthday="14/08/1990"
-        github="https://github.com/CedricWagner"
         image={ProfilePicture}
-        linkedin="https://www.linkedin.com/in/c%C3%A9dric-wagner-573ab8129/"
-        location="Strasbourg"
-        role="Développeur Web / Fullstack"
+        info={[
+          { slug: "name", value: "Cédric Wagner", private: false },
+          { slug: "birthday", value: "14/08/1990", private: true },
+        ]}
       />
     );
 

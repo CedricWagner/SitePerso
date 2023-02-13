@@ -1,13 +1,13 @@
-import { getVerifyCaptchaUrl, postVerifyCaptcha } from "./postVerifyCaptcha";
+import { getVerifyCaptchaUrl, getVerifyCaptcha } from "./getVerifyCaptcha";
 import "@testing-library/jest-dom/extend-expect";
-import { expectTypeOf, vi } from "vitest";
+import { expectTypeOf } from "vitest";
 import { CaptchaVerifyResponse } from "@/types";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 import { API_URL } from "@/config";
 import { getCaptchaSuccess } from "@/mock/getCaptchaResponse";
 
-const captchaResponse = rest.post(
+const captchaResponse = rest.get(
   API_URL + getVerifyCaptchaUrl(),
   (req, res, ctx) => {
     return res(ctx.json(getCaptchaSuccess));
@@ -20,16 +20,10 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-describe("postVerifyCaptcha()", () => {
+describe("getVerifyCaptcha()", () => {
   test("it should return a Promise of type CaptchaVerifyResponse", async () => {
-    const result = await postVerifyCaptcha("re35eg4e3g54eg");
+    const result = await getVerifyCaptcha();
 
     expectTypeOf(result).toEqualTypeOf<Promise<CaptchaVerifyResponse>>;
-  });
-
-  test("it should return a positive result", async () => {
-    const result = await postVerifyCaptcha("re35eg4e3g54eg");
-
-    expect(result.result).toBe(true);
   });
 });
