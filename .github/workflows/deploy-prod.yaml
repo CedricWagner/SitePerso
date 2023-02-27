@@ -32,16 +32,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Test ssh connection
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          passphrase: ""
-          script: |
-            cd ${{ secrets.REMOTE_TARGET }}
-            pwd
       # Copying files via SSH
       - name: Copying files to server
         uses: appleboy/scp-action@master
