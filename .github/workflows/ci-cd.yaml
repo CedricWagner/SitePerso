@@ -26,8 +26,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Run static code analyses
+        run: npm run lint
+
       - name: Run the tests
-        run: npm test
+        run: npm run test
 
       - name: Build
         run: npm run build
