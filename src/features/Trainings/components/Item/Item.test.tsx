@@ -5,7 +5,16 @@ import Item from "./Item";
 
 describe("<Item />", () => {
   test("it should mount", () => {
-    render(<Item />);
+    render(
+      <Item
+        date="November 2016"
+        description="Training description"
+        location="Strasbourg"
+        name="My training"
+        qualification="Master"
+        startDate={new Date()}
+      />
+    );
 
     const item = screen.getByTestId("TrainingItem");
 
