@@ -13,7 +13,7 @@ const DangerousHtmlContainer: FC<DangerousHtmlContainerProps> = ({
   <div
     data-testid="DangerousHtmlContainer"
     dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(html) }}
-    className={className}
+    className={className + " text-editor"}
   ></div>
 );
 
