@@ -75,7 +75,10 @@ function App() {
               </div>
               <div className="col-span-7 xl:col-span-8 2xl:col-span-9">
                 <BrowserRouter>
-                  <Navigation isMobileMenuOpen={isMobileMenuOpen} />
+                  <Navigation
+                    isMobileMenuOpen={isMobileMenuOpen}
+                    onItemSelect={onToggleMenuBurger}
+                  />
                   <Routes>
                     <Route path="/" element={<About />} />
                     <Route path="/experiences" element={<Experiences />} />

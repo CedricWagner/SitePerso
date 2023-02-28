@@ -9,9 +9,13 @@ import ChartBarIcon from "@heroicons/react/24/solid/ChartBarIcon";
 
 interface NavigationProps {
   isMobileMenuOpen?: boolean;
+  onItemSelect: () => void;
 }
 
-const Navigation: FC<NavigationProps> = ({ isMobileMenuOpen = false }) => (
+const Navigation: FC<NavigationProps> = ({
+  isMobileMenuOpen = false,
+  onItemSelect,
+}) => (
   <>
     {isMobileMenuOpen && (
       <div className="fixed left-0 top-16 z-0 h-full w-full bg-dark bg-opacity-50"></div>
@@ -23,26 +27,35 @@ const Navigation: FC<NavigationProps> = ({ isMobileMenuOpen = false }) => (
     >
       <Panel>
         <div data-testid="Navigation" className="flex-wrap gap-4 lg:flex">
-          <NavigationItem href="/" title="Présentation" picto={<UserIcon />} />
+          <NavigationItem
+            href="/"
+            title="Présentation"
+            picto={<UserIcon />}
+            onSelect={onItemSelect}
+          />
           <NavigationItem
             href="/experiences"
             title="Experiences"
             picto={<ChartBarIcon />}
+            onSelect={onItemSelect}
           />
           <NavigationItem
             href="/competences"
             title="Compétences"
             picto={<CodeBracketIcon />}
+            onSelect={onItemSelect}
           />
           <NavigationItem
             href="/formations"
             title="Formations"
             picto={<TrophyIcon />}
+            onSelect={onItemSelect}
           />
           <NavigationItem
             href="/loisirs"
             title="Loisirs"
             picto={<HeartIcon />}
+            onSelect={onItemSelect}
           />
         </div>
       </Panel>

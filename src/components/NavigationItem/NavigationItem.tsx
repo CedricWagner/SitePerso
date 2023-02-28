@@ -4,10 +4,16 @@ import { Link, useLocation } from "react-router-dom";
 interface NavigationItemProps {
   title: string;
   href: string;
-  picto: any;
+  picto: React.ComponentProps<"svg">;
+  onSelect: () => void;
 }
 
-const NavigationItem: FC<NavigationItemProps> = ({ title, href, picto }) => {
+const NavigationItem: FC<NavigationItemProps> = ({
+  title,
+  href,
+  picto,
+  onSelect,
+}) => {
   const location = useLocation();
   const isActive = location.pathname + location.search === href;
 
@@ -15,6 +21,7 @@ const NavigationItem: FC<NavigationItemProps> = ({ title, href, picto }) => {
     <Link
       data-testid="NavigationItem"
       to={href}
+      onClick={onSelect}
       className={`btn mb-3 flex items-center justify-center lg:mb-0 lg:h-[7rem] lg:w-[7rem] lg:flex-col ${
         isActive ? "btn-primary" : "dark:btn-dark btn-light"
       }`}
