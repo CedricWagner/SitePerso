@@ -24,7 +24,7 @@ export const Group: FC<SkillGroupProps> = ({ name, id }) => {
   if (!query?.data || query?.data?.length === 0) return <></>;
 
   return (
-    <li data-testid="SkillGroup" className="mb-4">
+    <li data-testid="SkillGroup" className="mb-4 xl:mb-0">
       <InnerPanel classNames={["h-full"]}>
         <h3 className="mb-2 text-lg font-bold">{name}</h3>
         {query.isLoading && <Waiting />}

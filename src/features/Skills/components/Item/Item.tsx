@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { Skill } from "../../types";
 
 const Item: FC<Skill> = ({ name, rating, details }) => (
-  <li data-testid="SkillItem" className="mb-4 xl:mb-0">
+  <li data-testid="SkillItem" className="mb-2">
     <div>
       <span className="pr-4 font-bold">{name}</span>
       {rating && (
