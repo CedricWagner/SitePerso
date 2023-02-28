@@ -10,7 +10,7 @@ export const Item: FC<ExperienceType> = ({
   role,
   description,
 }) => (
-  <li data-testid="ExperienceItem" className="mb-4">
+  <li data-testid="ExperienceItem" className="mb-4 xl:mb-0">
     <InnerPanel classNames={["h-full"]}>
       <h4 className="inline text-lg font-bold">{organization}</h4>,
       <span className="pl-1 after:pl-1 after:content-['—']">{type}</span>

@@ -1,12 +1,17 @@
+import StarRating from "@/components/StarRating/StarRating";
 import React, { FC } from "react";
 import { Skill } from "../../types";
 
 const Item: FC<Skill> = ({ name, rating, details }) => (
-  <li data-testid="SkillItem" className="mb-2">
-    <p>
-      <span className="font-bold">{name}</span>
-      {rating && <span className="pl-2">{rating}/10</span>}
-    </p>
+  <li data-testid="SkillItem" className="mb-4 xl:mb-0">
+    <div>
+      <span className="pr-4 font-bold">{name}</span>
+      {rating && (
+        <div className="inline-block">
+          <StarRating value={rating} />
+        </div>
+      )}
+    </div>
     {details && <p className="italic">{details}</p>}
   </li>
 );

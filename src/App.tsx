@@ -13,6 +13,7 @@ import { Skills } from "./features/Skills";
 import { Trainings } from "./features/Trainings";
 import { Hobbies } from "./features/Hobbies";
 import { getVerifyCaptcha } from "./api/getVerifyCaptcha";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
@@ -75,7 +76,10 @@ function App() {
               </div>
               <div className="col-span-7 xl:col-span-8 2xl:col-span-9">
                 <BrowserRouter>
-                  <Navigation isMobileMenuOpen={isMobileMenuOpen} />
+                  <Navigation
+                    isMobileMenuOpen={isMobileMenuOpen}
+                    onItemSelect={onToggleMenuBurger}
+                  />
                   <Routes>
                     <Route path="/" element={<About />} />
                     <Route path="/experiences" element={<Experiences />} />
@@ -87,6 +91,7 @@ function App() {
               </div>
             </div>
           </div>
+          <Footer>© 2023 Created by Cedric Wagner</Footer>
         </div>
       </QueryClientProvider>
     </GlobalContext.Provider>
