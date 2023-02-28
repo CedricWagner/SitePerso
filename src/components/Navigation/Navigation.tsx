@@ -18,7 +18,7 @@ const Navigation: FC<NavigationProps> = ({
 }) => (
   <>
     {isMobileMenuOpen && (
-      <div className="fixed left-0 top-16 z-0 h-full w-full bg-dark bg-opacity-50"></div>
+      <div className="fixed left-0 top-16 z-0 h-full w-full bg-dark bg-opacity-50 lg:hidden"></div>
     )}
     <div
       className={`z-1 top-16 right-0 w-full lg:static lg:block ${
