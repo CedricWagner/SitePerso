@@ -15,6 +15,7 @@ axios.interceptors.response.use(
   },
   (error) => {
     const message = error.response?.data?.message || error.message;
+    // eslint-disable-next-line no-console
     console.log("Une erreur est survenue : " + message);
   }
 );

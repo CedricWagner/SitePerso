@@ -5,7 +5,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "lint": "eslint . --ext .ts"
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.4.4",
@@ -27,7 +28,10 @@
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@types/react-imgix": "^9.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
     "@vitejs/plugin-react": "^1.0.7",
+    "eslint": "^8.35.0",
     "jsdom": "^21.0.0",
     "msw": "^0.49.2",
     "prettier": "^2.5.1",
