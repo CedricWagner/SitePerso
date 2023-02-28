@@ -9,7 +9,12 @@ describe("<NavigationItem />", () => {
   test("it should mount", () => {
     render(
       <BrowserRouter>
-        <NavigationItem href="/" picto={<UserIcon />} title="Home" />
+        <NavigationItem
+          href="/"
+          picto={<UserIcon />}
+          title="Home"
+          onSelect={() => {}}
+        />
       </BrowserRouter>
     );
 
