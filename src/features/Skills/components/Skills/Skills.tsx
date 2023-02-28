@@ -30,7 +30,7 @@ export const Skills: FC<SkillsProps> = () => {
     <div data-testid="Skills">
       <Panel>
         <PageTitle>Mes compétences</PageTitle>
-        <ul className="grid-cols-2 gap-6 lg:grid">
+        <ul className="grid-cols-2 gap-6 xl:grid">
           {query.data.map((item, key) => (
             <Group name={item.name} id={item.id} key={key} />
           ))}

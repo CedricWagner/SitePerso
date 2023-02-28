@@ -30,7 +30,7 @@ export const Hobbies: FC<HobbiesProps> = () => {
     <div data-testid="Hobbies">
       <Panel>
         <PageTitle>Mes loisirs</PageTitle>
-        <ul className="grid-cols-2 gap-6 lg:grid">
+        <ul className="grid-cols-2 gap-6 xl:grid">
           {query.data.map((item, key) => (
             <Item key={key} {...item} />
           ))}
