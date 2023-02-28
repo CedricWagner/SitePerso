@@ -31,9 +31,8 @@ const CaptchaModal: FC<CaptchaModalProps> = ({ onClose }) => {
           setHasError(true);
         }
       })
-      .catch((error) => {
+      .catch(() => {
         setHasError(true);
-        console.log(error);
       });
   }
 
@@ -53,7 +52,7 @@ const CaptchaModal: FC<CaptchaModalProps> = ({ onClose }) => {
           {hasError && (
             <p className="text-red-500">
               Une erreur est survenue lors de la validation du Captcha. Si
-              l'erreur se reproduit, merci de privilégier
+              l'erreur se reproduit, merci de privilégier&nbsp;
               <a
                 href="https://www.linkedin.com/in/c%C3%A9dric-wagner-573ab8129/"
                 target={"_blank"}
@@ -61,7 +60,7 @@ const CaptchaModal: FC<CaptchaModalProps> = ({ onClose }) => {
               >
                 linkedIn
               </a>
-              pour me contacter
+              &nbsp;pour me contacter
             </p>
           )}
         </form>
