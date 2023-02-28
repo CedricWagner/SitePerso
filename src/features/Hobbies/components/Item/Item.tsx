@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import { Hobby } from "../../types";
 
 const Item: FC<Hobby> = ({ name, description }) => (
-  <li data-testid="HobbyItem" className="mb-4">
+  <li data-testid="HobbyItem" className="mb-4 xl:mb-0">
     <InnerPanel classNames={["h-full"]}>
       <h3 className="mb-2 text-lg font-bold">{name}</h3>
       <DangerousHtmlContainer html={description} />
