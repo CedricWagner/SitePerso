@@ -46,6 +46,6 @@ describe("<DangerousHtmlContainer />", () => {
 
     const dangerousHtmlContainer = screen.getByTestId("DangerousHtmlContainer");
 
-    expect(dangerousHtmlContainer.className).toBe("");
+    expect(dangerousHtmlContainer).toHaveClass("text-editor");
   });
 });
