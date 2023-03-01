@@ -19,9 +19,14 @@ import { findAllBySlugs, findOneBySlug, findValueBySlug } from "../../utils";
 interface ProfileCardProps {
   info: ProfileInformation[];
   image: string;
+  imageWebp?: string | null;
 }
 
-const ProfileCard: FC<ProfileCardProps> = ({ info, image }) => {
+const ProfileCard: FC<ProfileCardProps> = ({
+  info,
+  image,
+  imageWebp = null,
+}) => {
   const pictureClassNames = ["w-[100%]"];
 
   return (
@@ -29,18 +34,15 @@ const ProfileCard: FC<ProfileCardProps> = ({ info, image }) => {
       <Panel>
         <div className="m-auto mb-5 w-[250px] max-w-full overflow-hidden rounded-lg md:mt-[-100px]">
           {!image.includes("https") && (
-            <img
-              src={image}
-              alt={`Photo ${findValueBySlug(info, "name")}`}
-              className={pictureClassNames.join(" ")}
-            />
-          )}
-          {image.includes("https") && (
-            <Imgix
-              src={image}
-              width={430}
-              className={pictureClassNames.join(" ")}
-            />
+            <picture>
+              {imageWebp !== null && <source srcSet={imageWebp} />}
+              <source srcSet={image} />
+              <img
+                src={image}
+                alt={`Photo ${findValueBySlug(info, "name")}`}
+                className={pictureClassNames.join(" ")}
+              />
+            </picture>
           )}
         </div>
         <h2 className="mb-2 text-center text-2xl font-bold">

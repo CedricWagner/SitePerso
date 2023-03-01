@@ -28,10 +28,8 @@ const InfoItem: FC<InfoItemProps> = ({
     specificType && specificType === "email" ? "mailto" : "tel";
 
   return (
-    <div data-testid="InfoItem" className="group grid grid-cols-12">
-      <div className="col-span-2 flex max-h-12 py-2 px-2 transition-all group-hover:animate-spin">
-        {picto}
-      </div>
+    <div data-testid="InfoItem" className="grid grid-cols-12">
+      <div className="col-span-2 flex max-h-12 py-2 px-2">{picto}</div>
       <div className="col-span-10 flex">
         <div>
           <span className="block text-sm text-slate-600 dark:text-slate-400">
