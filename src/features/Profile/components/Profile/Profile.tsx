@@ -1,6 +1,7 @@
 import React, { FC, useContext, useEffect } from "react";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import ProfilePicture from "../../assets/images/profile-picture.jpg";
+import ProfilePictureWebp from "../../assets/images/profile-picture.webp";
 import {
   getLangFromGlobalContext,
   GlobalContext,
@@ -26,5 +27,11 @@ export const Profile: FC<ProfileProps> = () => {
   if (!query?.data || query?.data?.length === 0)
     return <PanelUnderConstruction />;
 
-  return <ProfileCard info={query.data} image={ProfilePicture} />;
+  return (
+    <ProfileCard
+      info={query.data}
+      image={ProfilePicture}
+      imageWebp={ProfilePictureWebp}
+    />
+  );
 };
