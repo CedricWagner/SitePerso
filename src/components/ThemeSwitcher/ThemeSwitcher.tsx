@@ -24,6 +24,7 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({
     <HeroButton
       classes={["rounded-full", "h-8", "w-8"]}
       onClick={toggleThemeSwitcher}
+      title={`Changer de thème (${currentTheme === "dark" ? "light" : "dark"})`}
     >
       {currentTheme === "dark" ? <SunIcon /> : <MoonIcon />}
     </HeroButton>

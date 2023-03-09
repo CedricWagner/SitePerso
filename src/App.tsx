@@ -14,9 +14,11 @@ import { Trainings } from "./features/Trainings";
 import { Hobbies } from "./features/Hobbies";
 import { getVerifyCaptcha } from "./api/getVerifyCaptcha";
 import Footer from "./components/Footer/Footer";
+import LangSwitcher from "./components/LangSwitcher/LangSwitcher";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
+  const [lang, setLang] = useState(localStorage.lang ?? "fr");
   const [isVerified, setVerified] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -30,7 +32,9 @@ function App() {
     } else {
       document.documentElement.classList.remove("dark");
     }
+  }, [theme]);
 
+  useEffect(() => {
     getVerifyCaptcha()
       .then((response) => {
         setVerified(response.result);
@@ -38,7 +42,7 @@ function App() {
       .catch(() => {
         setVerified(false);
       });
-  }, [theme]);
+  }, []);
 
   function onThemeSwitch(theme: string) {
     setTheme(theme);
@@ -50,7 +54,8 @@ function App() {
   }
 
   const defaultGlobalContext: GlobalContextInterface = {
-    lang: "fr",
+    lang: lang,
+    setLang: setLang,
     isVerified: isVerified,
     setVerified: setVerified,
   };
@@ -65,6 +70,7 @@ function App() {
                 currentTheme={theme}
                 onThemeSwitch={onThemeSwitch}
               />
+              <LangSwitcher currentLang={lang} />
               <MenuBurger
                 isOpen={isMobileMenuOpen}
                 onToggle={onToggleMenuBurger}
