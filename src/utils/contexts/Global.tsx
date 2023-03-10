@@ -3,6 +3,7 @@ import { lang as langType } from "@/types";
 
 export interface GlobalContextInterface {
   lang: langType;
+  setLang: (lang: langType) => void;
   isVerified: boolean;
   setVerified: (isVerfied: boolean) => void;
 }

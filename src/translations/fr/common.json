@@ -1,0 +1,51 @@
+{
+  "document": {
+    "title": "Cédric Wagner - Mon CV en ligne"
+  },
+  "lang": {
+    "switch": "English version"
+  },
+  "theme": {
+    "switch": "Appliquer le theme {{theme}}"
+  },
+  "menu": {
+    "open": "Ouvrir le menu",
+    "close": "Fermer le menu",
+    "presentation": "Présentation",
+    "experiences": "Expériences",
+    "skills": "Compétences",
+    "trainings": "Formations",
+    "hobbies": "Loisirs"
+  },
+  "profile": {
+    "phone": "Téléphone",
+    "email": "Email",
+    "location": "Localisation",
+    "birthday": "Année de naissance"
+  },
+  "experiences": {
+    "title": "Mes expériences"
+  },
+  "skills": {
+    "title": "Mes compétences"
+  },
+  "trainings": {
+    "title": "Mes formations"
+  },
+  "hobbies": {
+    "title": "Mes loisirs"
+  },
+  "stars": {
+    "rating": "{{rating}} étoile(s) sur {{nbStars}}"
+  },
+  "footer": {
+    "created_by": "Créé par {{name}}"
+  },
+  "modal": {
+    "close": "Fermer"
+  },
+  "captcha": {
+    "error": "Une erreur est survenue lors de la validation du Captcha. Si l'erreur se reproduit, merci de privilégier <1>linkedin</1> pour me contacter"
+  },
+  "under_construction": "En construction..."
+}

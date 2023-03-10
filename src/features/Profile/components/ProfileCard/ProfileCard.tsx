@@ -15,6 +15,7 @@ import PictoButtonsList from "@/components/PictoButtonsList/PictoButtonsList";
 import PictoButton from "@/components/PictoButton/PictoButton";
 import { ProfileInformation } from "../../types";
 import { findAllBySlugs, findOneBySlug, findValueBySlug } from "../../utils";
+import { useTranslation } from "react-i18next";
 
 interface ProfileCardProps {
   info: ProfileInformation[];
@@ -28,6 +29,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
   imageWebp = null,
 }) => {
   const pictureClassNames = ["w-[100%]"];
+  const { t, i18n } = useTranslation("common");
 
   return (
     <div data-testid="ProfileCard">
@@ -92,7 +94,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
                   return (
                     <InfoItem
                       picto={<PhoneIcon />}
-                      label="Téléphone"
+                      label={t("profile.phone")}
                       value={item.value}
                       mustVerify={item.private}
                       specificType="phone"
@@ -102,7 +104,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
                   return (
                     <InfoItem
                       picto={<AtSymbolIcon />}
-                      label="Email"
+                      label={t("profile.email")}
                       value={item.value}
                       mustVerify={item.private}
                       specificType="email"
@@ -112,7 +114,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
                   return (
                     <InfoItem
                       picto={<HomeIcon />}
-                      label="Localisation"
+                      label={t("profile.location")}
                       value={item.value}
                       mustVerify={item.private}
                     />
@@ -121,7 +123,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
                   return (
                     <InfoItem
                       picto={<CalendarIcon />}
-                      label="Date de naissance"
+                      label={t("profile.birthday")}
                       value={item.value}
                       mustVerify={item.private}
                     />

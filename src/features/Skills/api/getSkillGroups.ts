@@ -22,7 +22,7 @@ type UseSkillGroupsOptions = {
 
 export const useSkillGroups = ({ lang, config }: UseSkillGroupsOptions) => {
   return useQuery<ExtractFnReturnType<QueryFnType>>({
-    queryKey: ["lang", lang],
+    queryKey: ["SkillGroups", lang],
     queryFn: () => getSkillGroups(lang),
     ...config,
   });

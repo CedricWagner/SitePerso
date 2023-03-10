@@ -9,6 +9,7 @@ import mock from "../../mock/getSkills.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
 import { API_URL } from "@/config";
+import { I18nextWrapper } from "@/mock/mockI18next";
 
 const skillsResponseFr = rest.get(API_URL + "/api/skills", (req, res, ctx) => {
   return res(ctx.json(mock));
@@ -21,9 +22,11 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 const elem = (
-  <QueryClientProvider client={queryClient}>
-    <Group name="Group test" id={1} />
-  </QueryClientProvider>
+  <I18nextWrapper>
+    <QueryClientProvider client={queryClient}>
+      <Group name="Group test" id={1} />
+    </QueryClientProvider>
+  </I18nextWrapper>
 );
 
 describe("<Group />", () => {

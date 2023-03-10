@@ -22,7 +22,7 @@ type UseHobbiesOptions = {
 
 export const useHobbies = ({ lang, config }: UseHobbiesOptions) => {
   return useQuery<ExtractFnReturnType<QueryFnType>>({
-    queryKey: ["lang", lang],
+    queryKey: ["Hobbies", lang],
     queryFn: () => getHobbies(lang),
     ...config,
   });

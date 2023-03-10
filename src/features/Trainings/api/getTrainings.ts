@@ -22,7 +22,7 @@ type UseTrainingsOptions = {
 
 export const useTrainings = ({ lang, config }: UseTrainingsOptions) => {
   return useQuery<ExtractFnReturnType<QueryFnType>>({
-    queryKey: ["lang", lang],
+    queryKey: ["Trainings", lang],
     queryFn: () => getTrainings(lang),
     ...config,
   });

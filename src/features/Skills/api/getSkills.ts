@@ -26,7 +26,7 @@ type UseSkillsOptions = {
 
 export const useSkills = ({ lang, groupId, config }: UseSkillsOptions) => {
   return useQuery<ExtractFnReturnType<QueryFnType>>({
-    queryKey: ["skills", lang, groupId],
+    queryKey: ["Skills", lang, groupId],
     queryFn: () => getSkills(lang, groupId),
     ...config,
   });

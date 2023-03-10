@@ -1,8 +1,4 @@
 import Waiting from "@/components/Waiting/Waiting";
-import {
-  getLangFromGlobalContext,
-  GlobalContext,
-} from "@/utils/contexts/Global";
 import InnerPanel from "@/wrappers/InnerPanel/InnerPanel";
 import React, { FC, useContext } from "react";
 import { useSkills } from "../../api/getSkills";
@@ -14,10 +10,8 @@ interface SkillGroupProps {
 }
 
 export const Group: FC<SkillGroupProps> = ({ name, id }) => {
-  const globalContext = useContext(GlobalContext);
-
   const query = useSkills({
-    lang: getLangFromGlobalContext(globalContext),
+    lang: localStorage.lang,
     groupId: id,
   });
 

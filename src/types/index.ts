@@ -1,4 +1,4 @@
-export type lang = "fr" | "en";
+export type lang = string;
 export type CaptchaVerifyResponse = {
   result: boolean;
 };
