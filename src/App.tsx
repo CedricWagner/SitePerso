@@ -54,7 +54,7 @@ function App() {
   useEffect(() => {
     getVerifyCaptcha()
       .then((response) => {
-        setVerified(response.result);
+        setVerified(response.result === true ? true : false);
       })
       .catch(() => {
         setVerified(false);
