@@ -9,6 +9,7 @@ import mock from "../../mock/getHobbies.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
 import { API_URL } from "@/config";
+import { I18nextWrapper } from "@/mock/mockI18next";
 
 const hobbiesResponseFr = rest.get(
   API_URL + "/api/hobbies",
@@ -24,9 +25,11 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 const elem = (
-  <QueryClientProvider client={queryClient}>
-    <Hobbies />
-  </QueryClientProvider>
+  <I18nextWrapper>
+    <QueryClientProvider client={queryClient}>
+      <Hobbies />
+    </QueryClientProvider>
+  </I18nextWrapper>
 );
 
 describe("<Hobbies />", () => {

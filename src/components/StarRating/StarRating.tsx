@@ -13,6 +13,7 @@ const StarRating: FC<StarRatingProps> = ({ max = 10, value }) => {
   return (
     <div data-testid="StarRating" className="flex">
       <span className="sr-only">
+        {/* TODO translate */}
         {rating} étoile(s) sur {nbStars}
       </span>
       {[...Array(nbStars)].map((item, index) => {

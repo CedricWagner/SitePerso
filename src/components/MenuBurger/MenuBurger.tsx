@@ -10,7 +10,7 @@ interface MenuBurgerProps {
 }
 
 const MenuBurger: FC<MenuBurgerProps> = ({ isOpen, onToggle }) => {
-  const [t] = useTranslation("common");
+  const { t } = useTranslation("common");
   function toggle() {
     onToggle();
   }

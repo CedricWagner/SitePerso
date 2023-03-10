@@ -14,7 +14,7 @@ describe("<LangSwitcher />", () => {
     render(
       <I18nextProvider i18n={i18next}>
         <Suspense fallback="loading">
-          <LangSwitcher currentLang="fr" />
+          <LangSwitcher />
         </Suspense>
       </I18nextProvider>
     );
@@ -28,7 +28,7 @@ describe("<LangSwitcher />", () => {
     render(
       <I18nextProvider i18n={i18next}>
         <Suspense fallback="loading">
-          <LangSwitcher currentLang="fr" />
+          <LangSwitcher />
         </Suspense>
       </I18nextProvider>
     );

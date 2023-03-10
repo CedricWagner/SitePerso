@@ -13,7 +13,7 @@
   },
   "overrides": [
     {
-      "files": ["*.test.tsx"],
+      "files": ["*.test.tsx", "src/mock/*.ts"],
       "rules": {
         "@typescript-eslint/no-empty-function": "off"
       }

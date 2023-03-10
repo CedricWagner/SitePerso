@@ -9,6 +9,7 @@ import { setupServer } from "msw/node";
 import mock from "../../mock/getSkillGroups.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
+import { I18nextWrapper } from "@/mock/mockI18next";
 
 const skillGroupsResponseFr = rest.get(
   API_URL + "/api/skill_groups",
@@ -28,9 +29,11 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 const elem = (
-  <QueryClientProvider client={queryClient}>
-    <Skills />
-  </QueryClientProvider>
+  <I18nextWrapper>
+    <QueryClientProvider client={queryClient}>
+      <Skills />
+    </QueryClientProvider>
+  </I18nextWrapper>
 );
 
 describe("<Skills />", () => {

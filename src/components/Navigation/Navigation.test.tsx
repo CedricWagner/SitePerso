@@ -4,13 +4,16 @@ import "@testing-library/jest-dom/extend-expect";
 import Navigation from "./Navigation";
 import { BrowserRouter } from "react-router-dom";
 import { vi } from "vitest";
+import { I18nextWrapper } from "@/mock/mockI18next";
 
 describe("<Navigation />", () => {
   test("it should mount", () => {
     render(
-      <BrowserRouter>
-        <Navigation onItemSelect={() => {}} />
-      </BrowserRouter>
+      <I18nextWrapper>
+        <BrowserRouter>
+          <Navigation onItemSelect={() => {}} />
+        </BrowserRouter>
+      </I18nextWrapper>
     );
 
     const navigation = screen.getByTestId("Navigation");
@@ -22,9 +25,11 @@ describe("<Navigation />", () => {
     const onItemSelect = vi.fn().mockImplementation(() => {});
 
     render(
-      <BrowserRouter>
-        <Navigation onItemSelect={onItemSelect} />
-      </BrowserRouter>
+      <I18nextWrapper>
+        <BrowserRouter>
+          <Navigation onItemSelect={onItemSelect} />
+        </BrowserRouter>
+      </I18nextWrapper>
     );
 
     const navigationItems = screen.getAllByTestId("NavigationItem");
