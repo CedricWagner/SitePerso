@@ -1,10 +1,6 @@
 import PageTitle from "@/components/PageTitle/PageTitle";
 import PanelUnderConstruction from "@/components/PanelUnderConstruction/PanelUnderConstruction";
 import PanelWaiting from "@/components/PanelWaiting/PanelWaiting";
-import {
-  getLangFromGlobalContext,
-  GlobalContext,
-} from "@/utils/contexts/Global";
 import Panel from "@/wrappers/Panel/Panel";
 import React, { FC, useContext } from "react";
 import { useTrainings } from "../../api/getTrainings";
@@ -13,10 +9,8 @@ import Item from "../Item/Item";
 interface TrainingsProps {}
 
 export const Trainings: FC<TrainingsProps> = () => {
-  const globalContext = useContext(GlobalContext);
-
   const query = useTrainings({
-    lang: getLangFromGlobalContext(globalContext),
+    lang: localStorage.lang,
   });
 
   if (query.isLoading) {

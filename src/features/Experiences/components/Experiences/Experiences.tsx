@@ -1,10 +1,6 @@
 import { FC, useContext } from "react";
 import Panel from "@/wrappers/Panel/Panel";
 import { useExperiences } from "../../api/getExperiences";
-import {
-  getLangFromGlobalContext,
-  GlobalContext,
-} from "@/utils/contexts/Global";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import { Item } from "../Item/Item";
 import PanelWaiting from "@/components/PanelWaiting/PanelWaiting";
@@ -14,11 +10,10 @@ import { useTranslation } from "react-i18next";
 interface ExperiencesProps {}
 
 export const Experiences: FC<ExperiencesProps> = () => {
-  const globalContext = useContext(GlobalContext);
   const [t] = useTranslation("common");
 
   const query = useExperiences({
-    lang: getLangFromGlobalContext(globalContext),
+    lang: localStorage.lang,
   });
 
   if (query.isLoading) {

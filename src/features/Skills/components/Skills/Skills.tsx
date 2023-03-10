@@ -1,10 +1,6 @@
 import PageTitle from "@/components/PageTitle/PageTitle";
 import PanelUnderConstruction from "@/components/PanelUnderConstruction/PanelUnderConstruction";
 import PanelWaiting from "@/components/PanelWaiting/PanelWaiting";
-import {
-  getLangFromGlobalContext,
-  GlobalContext,
-} from "@/utils/contexts/Global";
 import Panel from "@/wrappers/Panel/Panel";
 import React, { FC, useContext } from "react";
 import { useSkillGroups } from "../../api/getSkillGroups";
@@ -13,10 +9,8 @@ import { Group } from "../Group/Group";
 interface SkillsProps {}
 
 export const Skills: FC<SkillsProps> = () => {
-  const globalContext = useContext(GlobalContext);
-
   const query = useSkillGroups({
-    lang: getLangFromGlobalContext(globalContext),
+    lang: localStorage.lang,
   });
 
   if (query.isLoading) {

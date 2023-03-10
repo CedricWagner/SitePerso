@@ -22,7 +22,7 @@ type UseExperiencesOptions = {
 
 export const useExperiences = ({ lang, config }: UseExperiencesOptions) => {
   return useQuery<ExtractFnReturnType<QueryFnType>>({
-    queryKey: ["lang", lang],
+    queryKey: ["Experiences", lang],
     queryFn: () => getExperiences(lang),
     ...config,
   });
