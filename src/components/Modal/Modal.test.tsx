@@ -2,10 +2,15 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Modal from "./Modal";
 import { vi } from "vitest";
+import { I18nextWrapper } from "@/mock/mockI18next";
 
 describe("<Modal />", () => {
   test("it should mount", () => {
-    render(<Modal display={true} title="Titre" onClose={() => {}} />);
+    render(
+      <I18nextWrapper>
+        <Modal display={true} title="Titre" onClose={() => {}} />
+      </I18nextWrapper>
+    );
 
     const modal = screen.getByTestId("Modal");
 
@@ -15,7 +20,11 @@ describe("<Modal />", () => {
   test("it should call onClose when click on Close button", () => {
     const onClose = vi.fn().mockImplementation(() => {});
 
-    render(<Modal display={true} title="Titre" onClose={onClose}></Modal>);
+    render(
+      <I18nextWrapper>
+        <Modal display={true} title="Titre" onClose={onClose}></Modal>
+      </I18nextWrapper>
+    );
 
     const buttons = screen.getAllByRole("button");
     fireEvent.click(buttons[0]);

@@ -6,7 +6,7 @@ import { vi } from "vitest";
 
 describe("<HeroButton />", () => {
   test("it should mount", () => {
-    render(<HeroButton onClick={vi.fn} />);
+    render(<HeroButton onClick={vi.fn} title="The title" />);
 
     const heroButton = screen.getByTestId("HeroButton");
 
@@ -16,7 +16,7 @@ describe("<HeroButton />", () => {
   test("it should trigger the function on click", () => {
     const mockFn = vi.fn();
 
-    render(<HeroButton onClick={mockFn} />);
+    render(<HeroButton onClick={mockFn} title="The title" />);
 
     const heroButton = screen.getByTestId("HeroButton");
 
@@ -26,7 +26,13 @@ describe("<HeroButton />", () => {
   });
 
   test("it should contain the additionnal classes", () => {
-    render(<HeroButton onClick={vi.fn()} classes={["rounded", "square"]} />);
+    render(
+      <HeroButton
+        onClick={vi.fn()}
+        classes={["rounded", "square"]}
+        title="The title"
+      />
+    );
 
     const heroButton = screen.getByTestId("HeroButton");
 

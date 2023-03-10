@@ -9,6 +9,7 @@ import mock from "../../mock/getTrainings.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
 import { API_URL } from "@/config";
+import { I18nextWrapper } from "@/mock/mockI18next";
 
 const itemsResponseFr = rest.get(
   API_URL + "/api/trainings",
@@ -24,9 +25,11 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 const elem = (
-  <QueryClientProvider client={queryClient}>
-    <Trainings />
-  </QueryClientProvider>
+  <I18nextWrapper>
+    <QueryClientProvider client={queryClient}>
+      <Trainings />
+    </QueryClientProvider>
+  </I18nextWrapper>
 );
 
 describe("<Trainings />", () => {

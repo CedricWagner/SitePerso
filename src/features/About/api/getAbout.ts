@@ -26,7 +26,7 @@ type UseAboutOptions = {
 
 export const useAbout = ({ lang, config }: UseAboutOptions) => {
   return useQuery<ExtractFnReturnType<QueryFnType>>({
-    queryKey: ["lang", lang],
+    queryKey: ["About", lang],
     queryFn: () => getAbout(lang),
     ...config,
   });

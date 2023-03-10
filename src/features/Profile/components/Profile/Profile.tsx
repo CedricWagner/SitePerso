@@ -2,10 +2,7 @@ import React, { FC, useContext, useEffect } from "react";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import ProfilePicture from "../../assets/images/profile-picture.jpg";
 import ProfilePictureWebp from "../../assets/images/profile-picture.webp";
-import {
-  getLangFromGlobalContext,
-  GlobalContext,
-} from "@/utils/contexts/Global";
+import { GlobalContext } from "@/utils/contexts/Global";
 import { useProfileInformation } from "../../api/getProfileInformation";
 import PanelWaiting from "@/components/PanelWaiting/PanelWaiting";
 import PanelUnderConstruction from "@/components/PanelUnderConstruction/PanelUnderConstruction";
@@ -16,7 +13,7 @@ export const Profile: FC<ProfileProps> = () => {
   const globalContext = useContext(GlobalContext);
 
   const query = useProfileInformation({
-    lang: getLangFromGlobalContext(globalContext),
+    lang: localStorage.lang,
     isVerified: globalContext ? globalContext.isVerified : false,
   });
 

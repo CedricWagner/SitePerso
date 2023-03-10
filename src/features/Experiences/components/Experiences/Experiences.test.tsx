@@ -2,13 +2,17 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { Experiences } from "./Experiences";
-import { API_URL } from "@/config";
+import { API_URL, I18NEXT_CONFIG } from "@/config";
 
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 import mock from "../../mock/getExperiences.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
+import i18next from "i18next";
+import { I18nextProvider } from "react-i18next";
+
+i18next.init(I18NEXT_CONFIG);
 
 const experiencesResponseFr = rest.get(
   API_URL + "/api/experiences",
@@ -24,9 +28,11 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 const elem = (
-  <QueryClientProvider client={queryClient}>
-    <Experiences />
-  </QueryClientProvider>
+  <I18nextProvider i18n={i18next}>
+    <QueryClientProvider client={queryClient}>
+      <Experiences />
+    </QueryClientProvider>
+  </I18nextProvider>
 );
 
 describe("<Experiences />", () => {

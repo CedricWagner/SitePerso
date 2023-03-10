@@ -3,10 +3,15 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import MenuBurger from "./MenuBurger";
 import { vi } from "vitest";
+import { I18nextWrapper } from "@/mock/mockI18next";
 
 describe("<MenuBurger />", () => {
   test("it should mount", () => {
-    render(<MenuBurger isOpen={true} onToggle={vi.fn()} />);
+    render(
+      <I18nextWrapper>
+        <MenuBurger isOpen={true} onToggle={vi.fn()} />
+      </I18nextWrapper>
+    );
 
     const menuBurger = screen.getByRole("button");
 
@@ -19,7 +24,11 @@ describe("<MenuBurger />", () => {
       isOpen = !isOpen;
     };
 
-    render(<MenuBurger isOpen={isOpen} onToggle={toggle} />);
+    render(
+      <I18nextWrapper>
+        <MenuBurger isOpen={isOpen} onToggle={toggle} />
+      </I18nextWrapper>
+    );
 
     const menuBurger = screen.getByRole("button");
 

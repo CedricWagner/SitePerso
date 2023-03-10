@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useTranslation } from "react-i18next";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 interface StarRatingProps {
@@ -7,13 +8,14 @@ interface StarRatingProps {
 }
 
 const StarRating: FC<StarRatingProps> = ({ max = 10, value }) => {
+  const { t } = useTranslation("common");
   const rating = value / 2;
   const nbStars = max / 2;
 
   return (
     <div data-testid="StarRating" className="flex">
       <span className="sr-only">
-        {rating} étoile(s) sur {nbStars}
+        {t("stars.rating", { rating: rating, nbStars: nbStars })}
       </span>
       {[...Array(nbStars)].map((item, index) => {
         const num = index + 1;

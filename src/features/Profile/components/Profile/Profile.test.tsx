@@ -8,6 +8,7 @@ import mock from "../../mock/getProfileInformations.json";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/lib/react-query";
 import { API_URL } from "@/config";
+import { I18nextWrapper } from "@/mock/mockI18next";
 
 const profileInformationsResponseFr = rest.get(
   API_URL + "/api/profile_informations",
@@ -23,9 +24,11 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 const elem = (
-  <QueryClientProvider client={queryClient}>
-    <Profile />
-  </QueryClientProvider>
+  <I18nextWrapper>
+    <QueryClientProvider client={queryClient}>
+      <Profile />
+    </QueryClientProvider>
+  </I18nextWrapper>
 );
 
 describe("<Profile />", () => {
