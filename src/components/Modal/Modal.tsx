@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaCross, FaTimes } from "react-icons/fa";
 
 interface ModalProps {
@@ -8,6 +9,7 @@ interface ModalProps {
 }
 
 const Modal: FC<ModalProps> = ({ title, display, onClose, children }) => {
+  const { t } = useTranslation("common");
   useEffect(() => {
     document.onkeydown = (e: KeyboardEvent) => {
       const isEscape = e.key === "Escape" || e.key === "Esc";
@@ -48,7 +50,7 @@ const Modal: FC<ModalProps> = ({ title, display, onClose, children }) => {
                     type="button"
                     onClick={() => onClose()}
                   >
-                    Fermer
+                    {t("modal.close")}
                   </button>
                 </div>
               </div>

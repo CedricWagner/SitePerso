@@ -88,7 +88,7 @@ function App() {
                   currentTheme={theme}
                   onThemeSwitch={onThemeSwitch}
                 />
-                <LangSwitcher currentLang={lang} />
+                <LangSwitcher />
                 <MenuBurger
                   isOpen={isMobileMenuOpen}
                   onToggle={onToggleMenuBurger}

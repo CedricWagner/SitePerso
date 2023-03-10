@@ -35,8 +35,17 @@
   "hobbies": {
     "title": "Mes loisirs"
   },
+  "stars": {
+    "rating": "{{rating}} étoile(s) sur {{nbStars}}"
+  },
   "footer": {
     "created_by": "Créé par {{name}}"
+  },
+  "modal": {
+    "close": "Fermer"
+  },
+  "captcha": {
+    "error": "Une erreur est survenue lors de la validation du Captcha. Si l'erreur se reproduit, merci de privilégier <1>linkedin</1> pour me contacter"
   },
   "under_construction": "En construction..."
 }

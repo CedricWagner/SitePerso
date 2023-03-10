@@ -1,8 +1,4 @@
-import { lang as langType } from "@/types";
-import {
-  getLangFromGlobalContext,
-  GlobalContext,
-} from "@/utils/contexts/Global";
+import { GlobalContext } from "@/utils/contexts/Global";
 import HeroButton from "@/wrappers/HeroButton/HeroButton";
 import React, { FC, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
