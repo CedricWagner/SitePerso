@@ -1,0 +1,42 @@
+{
+  "document": {
+    "title": "Cédric Wagner - My online resume"
+  },
+  "lang": {
+    "switch": "Version française"
+  },
+  "theme": {
+    "switch": "Switch to {{theme}} theme"
+  },
+  "menu": {
+    "open": "Open menu",
+    "close": "Close menu",
+    "presentation": "Presentation",
+    "experiences": "Experiences",
+    "skills": "Skills",
+    "trainings": "Trainings",
+    "hobbies": "Hobbies"
+  },
+  "profile": {
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "birthday": "Birthdate"
+  },
+  "experiences": {
+    "title": "My experiences"
+  },
+  "skills": {
+    "title": "My skills"
+  },
+  "trainings": {
+    "title": "My trainings"
+  },
+  "hobbies": {
+    "title": "My hobbies"
+  },
+  "footer": {
+    "created_by": "Created by {{name}}"
+  },
+  "under_construction": "Under construction..."
+}

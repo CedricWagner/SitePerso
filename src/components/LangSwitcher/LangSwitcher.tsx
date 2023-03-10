@@ -1,7 +1,11 @@
 import { lang as langType } from "@/types";
-import { GlobalContext } from "@/utils/contexts/Global";
+import {
+  getLangFromGlobalContext,
+  GlobalContext,
+} from "@/utils/contexts/Global";
 import HeroButton from "@/wrappers/HeroButton/HeroButton";
-import React, { FC, useContext } from "react";
+import React, { FC, useContext, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 interface LangSwitcherProps {
   currentLang: langType;
@@ -9,22 +13,29 @@ interface LangSwitcherProps {
 
 const LangSwitcher: FC<LangSwitcherProps> = ({ currentLang }) => {
   const context = useContext(GlobalContext);
+  const [t, i18n] = useTranslation("common");
 
   function toggleLangSwitcher() {
     if (currentLang === "fr") {
       context?.setLang("en");
-      document.documentElement.setAttribute("lang", "en");
     } else {
       context?.setLang("fr");
-      document.documentElement.setAttribute("lang", "fr");
     }
   }
+
+  useEffect(() => {
+    const contextLang = getLangFromGlobalContext(context);
+    i18n.changeLanguage(contextLang);
+    document.title = t("document.title");
+    document.documentElement.setAttribute("lang", contextLang);
+    localStorage.lang = contextLang;
+  }, [context?.lang]);
 
   if (currentLang === "fr") {
     return (
       <HeroButton
         onClick={toggleLangSwitcher}
-        title={"English version"}
+        title={t("lang.switch")}
         lang={"en"}
       >
         EN
@@ -34,7 +45,7 @@ const LangSwitcher: FC<LangSwitcherProps> = ({ currentLang }) => {
     return (
       <HeroButton
         onClick={toggleLangSwitcher}
-        title={"Version française"}
+        title={t("lang.switch")}
         lang={"fr"}
       >
         FR

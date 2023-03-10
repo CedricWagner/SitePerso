@@ -15,12 +15,29 @@ import { Hobbies } from "./features/Hobbies";
 import { getVerifyCaptcha } from "./api/getVerifyCaptcha";
 import Footer from "./components/Footer/Footer";
 import LangSwitcher from "./components/LangSwitcher/LangSwitcher";
+import i18next from "i18next";
+import { I18nextProvider } from "react-i18next";
+import CommonFr from "./translations/fr/common.json";
+import CommonEn from "./translations/en/common.json";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
   const [lang, setLang] = useState(localStorage.lang ?? "fr");
   const [isVerified, setVerified] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  i18next.init({
+    interpolation: { escapeValue: false },
+    lng: lang,
+    resources: {
+      en: {
+        common: CommonEn,
+      },
+      fr: {
+        common: CommonFr,
+      },
+    },
+  });
 
   useEffect(() => {
     if (
@@ -62,44 +79,46 @@ function App() {
 
   return (
     <GlobalContext.Provider value={defaultGlobalContext}>
-      <QueryClientProvider client={queryClient}>
-        <div className="min-h-[100vh] bg-gradient-to-r from-white to-slate-100  dark:from-slate-900 dark:to-primary">
-          <div className="container mx-auto pt-10 lg:pt-0">
-            <div className="z-1 fixed top-0 left-0 flex w-full justify-end gap-4 rounded-b-lg bg-dark bg-opacity-50 py-5 px-4 lg:static lg:rounded-none lg:bg-transparent lg:py-8 lg:px-0">
-              <ThemeSwitcher
-                currentTheme={theme}
-                onThemeSwitch={onThemeSwitch}
-              />
-              <LangSwitcher currentLang={lang} />
-              <MenuBurger
-                isOpen={isMobileMenuOpen}
-                onToggle={onToggleMenuBurger}
-              />
-            </div>
-            <div className="grid-cols-12 pt-8 md:grid md:gap-8 md:pt-16">
-              <div className="col-span-5 hidden md:block xl:col-span-4 2xl:col-span-3">
-                <Profile />
+      <I18nextProvider i18n={i18next}>
+        <QueryClientProvider client={queryClient}>
+          <div className="min-h-[100vh] bg-gradient-to-r from-white to-slate-100  dark:from-slate-900 dark:to-primary">
+            <div className="container mx-auto pt-10 lg:pt-0">
+              <div className="z-1 fixed top-0 left-0 flex w-full justify-end gap-4 rounded-b-lg bg-dark bg-opacity-50 py-5 px-4 lg:static lg:rounded-none lg:bg-transparent lg:py-8 lg:px-0">
+                <ThemeSwitcher
+                  currentTheme={theme}
+                  onThemeSwitch={onThemeSwitch}
+                />
+                <LangSwitcher currentLang={lang} />
+                <MenuBurger
+                  isOpen={isMobileMenuOpen}
+                  onToggle={onToggleMenuBurger}
+                />
               </div>
-              <div className="col-span-7 xl:col-span-8 2xl:col-span-9">
-                <BrowserRouter>
-                  <Navigation
-                    isMobileMenuOpen={isMobileMenuOpen}
-                    onItemSelect={onToggleMenuBurger}
-                  />
-                  <Routes>
-                    <Route path="/" element={<About />} />
-                    <Route path="/experiences" element={<Experiences />} />
-                    <Route path="/competences" element={<Skills />} />
-                    <Route path="/formations" element={<Trainings />} />
-                    <Route path="/loisirs" element={<Hobbies />} />
-                  </Routes>
-                </BrowserRouter>
+              <div className="grid-cols-12 pt-8 md:grid md:gap-8 md:pt-16">
+                <div className="col-span-5 hidden md:block xl:col-span-4 2xl:col-span-3">
+                  <Profile />
+                </div>
+                <div className="col-span-7 xl:col-span-8 2xl:col-span-9">
+                  <BrowserRouter>
+                    <Navigation
+                      isMobileMenuOpen={isMobileMenuOpen}
+                      onItemSelect={onToggleMenuBurger}
+                    />
+                    <Routes>
+                      <Route path="/" element={<About />} />
+                      <Route path="/experiences" element={<Experiences />} />
+                      <Route path="/competences" element={<Skills />} />
+                      <Route path="/formations" element={<Trainings />} />
+                      <Route path="/loisirs" element={<Hobbies />} />
+                    </Routes>
+                  </BrowserRouter>
+                </div>
               </div>
             </div>
+            <Footer />
           </div>
-          <Footer>© 2023 Created by Cedric Wagner</Footer>
-        </div>
-      </QueryClientProvider>
+        </QueryClientProvider>
+      </I18nextProvider>
     </GlobalContext.Provider>
   );
 }
