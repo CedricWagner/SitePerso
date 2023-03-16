@@ -45,7 +45,8 @@
     "close": "Fermer"
   },
   "captcha": {
-    "error": "Une erreur est survenue lors de la validation du Captcha. Si l'erreur se reproduit, merci de privilégier <1>linkedin</1> pour me contacter"
+    "error": "Une erreur est survenue lors de la validation du Captcha. Si l'erreur se reproduit, merci de privilégier <1>linkedin</1> pour me contacter",
+    "display": "afficher"
   },
   "under_construction": "En construction..."
 }
