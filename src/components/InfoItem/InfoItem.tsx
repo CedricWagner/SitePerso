@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
 import { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { GlobalContext } from "../../utils/contexts/Global";
 import CaptchaModal from "../CaptchaModal/CaptchaModal";
-import Modal from "../Modal/Modal";
 
 interface InfoItemProps {
   picto: React.ComponentProps<"svg">;
@@ -19,6 +19,7 @@ const InfoItem: FC<InfoItemProps> = ({
   mustVerify = false,
   specificType,
 }) => {
+  const { t } = useTranslation("common");
   const globalContext = useContext(GlobalContext);
   const [displayModal, setDisplayModal] = useState(false);
   function onClickDisplay() {
@@ -41,7 +42,7 @@ const InfoItem: FC<InfoItemProps> = ({
               className="pl-1 text-sm underline hover:text-primary hover:dark:text-secondary"
               onClick={onClickDisplay}
             >
-              (afficher)
+              ({t("captcha.display")})
             </button>
           ) : (
             <>
