@@ -1,19 +1,19 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import Item from "./Item";
+import DisplayWebsiteInfo from "./DisplayWebsiteInfo";
 import { I18nextWrapper } from "@/mock/mockI18next";
 
-describe("<Item />", () => {
+describe("<DisplayWebsiteInfo />", () => {
   test("it should mount", () => {
     render(
       <I18nextWrapper>
-        <Item name="Skill item" details="details" rating={8} />
+        <DisplayWebsiteInfo />
       </I18nextWrapper>
     );
 
-    const item = screen.getByTestId("SkillItem");
+    const displayWebsiteInfo = screen.getByTestId("HeroButton");
 
-    expect(item).toBeInTheDocument();
+    expect(displayWebsiteInfo).toBeInTheDocument();
   });
 });

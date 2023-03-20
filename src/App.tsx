@@ -19,6 +19,7 @@ import i18next from "i18next";
 import { I18nextProvider } from "react-i18next";
 import CommonFr from "./translations/fr/common.json";
 import CommonEn from "./translations/en/common.json";
+import DisplayWebsiteInfo from "./features/WebsiteInfo/components/DisplayWebsiteInfo/DisplayWebsiteInfo";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
@@ -84,6 +85,7 @@ function App() {
           <div className="min-h-[100vh] bg-gradient-to-r from-white to-slate-100  dark:from-slate-900 dark:to-primary">
             <div className="container mx-auto pt-10 lg:pt-0">
               <div className="z-1 fixed top-0 left-0 flex w-full justify-end gap-4 rounded-b-lg bg-dark bg-opacity-50 py-5 px-4 lg:static lg:rounded-none lg:bg-transparent lg:py-8 lg:px-0">
+                <DisplayWebsiteInfo />
                 <ThemeSwitcher
                   currentTheme={theme}
                   onThemeSwitch={onThemeSwitch}
