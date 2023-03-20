@@ -48,5 +48,21 @@
     "error": "Une erreur est survenue lors de la validation du Captcha. Si l'erreur se reproduit, merci de privilégier <1>linkedin</1> pour me contacter",
     "display": "afficher"
   },
+  "website_info": {
+    "title": "A propos de ce site",
+    "source_code": "Voir le code source",
+    "front": {
+      "title": "Frontend",
+      "technologies": "Technologies utilisées : ReactJS, TypeScript, Tailwind, Vitest"
+    },
+    "back": {
+      "title": "Backend / Backoffice",
+      "technologies": "Technologies utilisées : Symfony (api-platform, easyadmin, doctrine), PHPUnit"
+    },
+    "server": {
+      "title": "Serveur",
+      "technologies": "Hébergé sur mon VPS, gràce à Docker et Nginx avec \"nginx-proxy-manager\""
+    }
+  },
   "under_construction": "En construction..."
 }

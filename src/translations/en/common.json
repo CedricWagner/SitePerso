@@ -48,5 +48,21 @@
     "error": "An error occurred while validating the Captcha. If the error persists, please use <1>linkedin</1> to contact me",
     "display": "display"
   },
+  "website_info": {
+    "title": "About this website",
+    "source_code": "View source code",
+    "front": {
+      "title": "Frontend",
+      "technologies": "Technologies: ReactJS, TypeScript, Tailwind, Vitest"
+    },
+    "back": {
+      "title": "Backend / Backoffice",
+      "technologies": "Technologies: Symfony (api-platform, easyadmin, doctrine), PHPUnit"
+    },
+    "server": {
+      "title": "Serveur",
+      "technologies": "Hosted with my VPS, using Docker and Nginx with \"nginx-proxy-manager\""
+    }
+  },
   "under_construction": "Under construction..."
 }
