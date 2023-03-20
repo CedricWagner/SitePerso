@@ -13,7 +13,7 @@ const WebsiteInfoModal: FC<WebsiteInfoModalProps> = ({ onClose }) => {
   const linkClasses = "underline text-primary";
 
   return (
-    <div data-testid="CaptchaModal">
+    <div data-testid="WebsiteInfoModal">
       <Modal display={true} title={t("website_info.title")} onClose={onClose}>
         <h2 className={titleClasses}>{t("website_info.front.title")}</h2>
         <p className="mb-4">
