@@ -15,7 +15,7 @@ const WebsiteInfoModal: FC<WebsiteInfoModalProps> = ({ onClose }) => {
   return (
     <div data-testid="WebsiteInfoModal">
       <Modal display={true} title={t("website_info.title")} onClose={onClose}>
-        <h2 className={titleClasses}>{t("website_info.front.title")}</h2>
+        <h3 className={titleClasses}>{t("website_info.front.title")}</h3>
         <p className="mb-4">
           {t("website_info.front.technologies")}
           <br />
@@ -30,7 +30,7 @@ const WebsiteInfoModal: FC<WebsiteInfoModalProps> = ({ onClose }) => {
             {t("website_info.source_code")}
           </a>
         </p>
-        <h2 className={titleClasses}>{t("website_info.back.title")}</h2>
+        <h3 className={titleClasses}>{t("website_info.back.title")}</h3>
         <p className="mb-4">
           {t("website_info.back.technologies")}
           <br />
@@ -45,7 +45,7 @@ const WebsiteInfoModal: FC<WebsiteInfoModalProps> = ({ onClose }) => {
             {t("website_info.source_code")}
           </a>
         </p>
-        <h2 className={titleClasses}>{t("website_info.server.title")}</h2>
+        <h3 className={titleClasses}>{t("website_info.server.title")}</h3>
         <p>{t("website_info.server.technologies")}</p>
       </Modal>
     </div>
