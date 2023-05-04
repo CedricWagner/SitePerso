@@ -12,7 +12,7 @@ export const Item: FC<ExperienceType> = ({
 }) => (
   <li data-testid="ExperienceItem" className="mb-4 xl:mb-0">
     <InnerPanel classNames={["h-full"]}>
-      <h4 className="inline text-lg font-bold">{organization}</h4>,
+      <h2 className="inline text-lg font-bold">{organization}</h2>,
       <span className="pl-1 after:pl-1 after:content-['—']">{type}</span>
       <span className="pl-1 italic">{role}</span>
       <p className="size-sm mb-1 text-slate-400">{duration}</p>

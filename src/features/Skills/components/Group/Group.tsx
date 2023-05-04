@@ -20,7 +20,7 @@ export const Group: FC<SkillGroupProps> = ({ name, id }) => {
   return (
     <li data-testid="SkillGroup" className="mb-4 xl:mb-0">
       <InnerPanel classNames={["h-full"]}>
-        <h3 className="mb-2 text-lg font-bold">{name}</h3>
+        <h2 className="mb-2 text-lg font-bold">{name}</h2>
         {query.isLoading && <Waiting />}
         <ul>
           {query.data.map((item, key) => (

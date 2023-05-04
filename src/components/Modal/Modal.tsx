@@ -29,9 +29,9 @@ const Modal: FC<ModalProps> = ({ title, display, onClose, children }) => {
               <div className="relative flex w-full flex-col rounded-lg border-0 bg-slate-100 shadow-lg outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between rounded-t border-b border-solid border-slate-200 p-5">
-                  <h3 className="text-2xl font-semibold text-slate-700">
+                  <h2 className="text-2xl font-semibold text-slate-700">
                     {title}
-                  </h3>
+                  </h2>
                   <button
                     className="btn btn-light float-right"
                     onClick={() => onClose()}
