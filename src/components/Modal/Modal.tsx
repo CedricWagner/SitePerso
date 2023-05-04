@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaCross, FaTimes } from "react-icons/fa";
 
@@ -10,6 +10,8 @@ interface ModalProps {
 
 const Modal: FC<ModalProps> = ({ title, display, onClose, children }) => {
   const { t } = useTranslation("common");
+  const titleTag = useRef<HTMLHeadingElement>(null);
+
   useEffect(() => {
     document.onkeydown = (e: KeyboardEvent) => {
       const isEscape = e.key === "Escape" || e.key === "Esc";
@@ -17,6 +19,7 @@ const Modal: FC<ModalProps> = ({ title, display, onClose, children }) => {
         onClose();
       }
     };
+    titleTag.current?.focus();
   }, []);
 
   return (
@@ -29,7 +32,11 @@ const Modal: FC<ModalProps> = ({ title, display, onClose, children }) => {
               <div className="relative flex w-full flex-col rounded-lg border-0 bg-slate-100 shadow-lg outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between rounded-t border-b border-solid border-slate-200 p-5">
-                  <h3 className="text-2xl font-semibold text-slate-700">
+                  <h3
+                    className="text-2xl font-semibold text-slate-700"
+                    ref={titleTag}
+                    tabIndex={0}
+                  >
                     {title}
                   </h3>
                   <button
