@@ -48,4 +48,32 @@ describe("<DangerousHtmlContainer />", () => {
 
     expect(dangerousHtmlContainer).toHaveClass("text-editor");
   });
+
+  test("it should add a blank attribute if external", () => {
+    render(
+      <DangerousHtmlContainer
+        html={`lorem <a href="https://external.link">ipsum</a>`}
+      />
+    );
+
+    const dangerousHtmlContainer = screen.getByTestId("DangerousHtmlContainer");
+
+    expect(dangerousHtmlContainer.innerHTML).toBe(
+      'lorem <a rel="noopener" target="_blank" href="https://external.link">ipsum</a>'
+    );
+  });
+
+  test("it should not add attribute to link when internal", () => {
+    render(
+      <DangerousHtmlContainer
+        html={`lorem <a href="/some-internal-page">ipsum</a>`}
+      />
+    );
+
+    const dangerousHtmlContainer = screen.getByTestId("DangerousHtmlContainer");
+
+    expect(dangerousHtmlContainer.innerHTML).toBe(
+      'lorem <a href="/some-internal-page">ipsum</a>'
+    );
+  });
 });
