@@ -64,5 +64,8 @@
       "technologies": "Hébergé sur mon VPS, gràce à Docker et Nginx avec \"nginx-proxy-manager\""
     }
   },
+  "skip": {
+    "content": "Aller au contenu"
+  },
   "under_construction": "En construction..."
 }

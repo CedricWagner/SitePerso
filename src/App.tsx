@@ -20,6 +20,7 @@ import { I18nextProvider } from "react-i18next";
 import CommonFr from "./translations/fr/common.json";
 import CommonEn from "./translations/en/common.json";
 import DisplayWebsiteInfo from "./features/WebsiteInfo/components/DisplayWebsiteInfo/DisplayWebsiteInfo";
+import SkipToContent from "./components/SkipToContent/SkipToContent";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.theme ?? "dark");
@@ -83,6 +84,7 @@ function App() {
       <I18nextProvider i18n={i18next}>
         <QueryClientProvider client={queryClient}>
           <div className="flex min-h-[100vh] flex-col bg-gradient-to-r from-white to-slate-100  dark:from-slate-900 dark:to-primary">
+            <SkipToContent />
             <div className="container mx-auto flex-1 pt-10 lg:pt-0">
               <div className="z-1 fixed top-0 left-0 flex w-full justify-end gap-4 rounded-b-lg bg-dark bg-opacity-50 py-5 px-4 lg:static lg:rounded-none lg:bg-transparent lg:py-8 lg:px-0">
                 <DisplayWebsiteInfo />
@@ -100,7 +102,10 @@ function App() {
                 <div className="col-span-5 hidden md:block xl:col-span-4 2xl:col-span-3">
                   <Profile />
                 </div>
-                <div className="col-span-7 xl:col-span-8 2xl:col-span-9">
+                <div
+                  className="col-span-7 xl:col-span-8 2xl:col-span-9"
+                  id="main-content"
+                >
                   <BrowserRouter>
                     <Navigation
                       isMobileMenuOpen={isMobileMenuOpen}
