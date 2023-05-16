@@ -30,7 +30,11 @@ const Navigation: FC<NavigationProps> = ({
         }`}
       >
         <Panel>
-          <div data-testid="Navigation" className="flex-wrap gap-4 lg:flex">
+          <div
+            data-testid="Navigation"
+            id="main-menu"
+            className="flex-wrap gap-4 lg:flex"
+          >
             <NavigationItem
               href="/"
               title={t("menu.presentation")}

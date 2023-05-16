@@ -102,22 +102,21 @@ function App() {
                 <div className="col-span-5 hidden md:block xl:col-span-4 2xl:col-span-3">
                   <Profile />
                 </div>
-                <div
-                  className="col-span-7 xl:col-span-8 2xl:col-span-9"
-                  id="main-content"
-                >
+                <div className="col-span-7 xl:col-span-8 2xl:col-span-9">
                   <BrowserRouter>
                     <Navigation
                       isMobileMenuOpen={isMobileMenuOpen}
                       onItemSelect={onToggleMenuBurger}
                     />
-                    <Routes>
-                      <Route path="/" element={<About />} />
-                      <Route path="/experiences" element={<Experiences />} />
-                      <Route path="/competences" element={<Skills />} />
-                      <Route path="/formations" element={<Trainings />} />
-                      <Route path="/loisirs" element={<Hobbies />} />
-                    </Routes>
+                    <div id="main-content">
+                      <Routes>
+                        <Route path="/" element={<About />} />
+                        <Route path="/experiences" element={<Experiences />} />
+                        <Route path="/competences" element={<Skills />} />
+                        <Route path="/formations" element={<Trainings />} />
+                        <Route path="/loisirs" element={<Hobbies />} />
+                      </Routes>
+                    </div>
                   </BrowserRouter>
                 </div>
               </div>

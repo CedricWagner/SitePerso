@@ -7,12 +7,20 @@ const SkipToContent: FC<SkipToContentProps> = () => {
   const { t } = useTranslation("common");
 
   return (
-    <a
-      href="#main-content"
-      className="btn btn-primary absolute left-0 m-3 -translate-y-16 p-3 transition focus:translate-y-0"
-    >
-      {t("skip.content")}
-    </a>
+    <div data-testid="SkipToContent">
+      <a
+        href="#main-menu"
+        className="btn btn-primary absolute left-0 m-3 -translate-y-16 p-3 transition focus:translate-y-0"
+      >
+        {t("skip.menu")}
+      </a>
+      <a
+        href="#main-content"
+        className="btn btn-primary absolute left-0 m-3 -translate-y-16 p-3 transition focus:translate-y-0"
+      >
+        {t("skip.content")}
+      </a>
+    </div>
   );
 };
 
