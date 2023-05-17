@@ -4,6 +4,19 @@ import Modal from "./Modal";
 import { vi } from "vitest";
 import { I18nextWrapper } from "@/mock/mockI18next";
 
+vi.mock("focus-trap", async (importOriginal) => {
+  const mod = await importOriginal();
+  return {
+    ...(mod as object),
+    createFocusTrap: () => {
+      return {
+        activate: () => {},
+        deactivate: () => {},
+      };
+    },
+  };
+});
+
 describe("<Modal />", () => {
   test("it should mount", () => {
     render(

@@ -9,12 +9,28 @@ interface DangerousHtmlContainerProps {
 const DangerousHtmlContainer: FC<DangerousHtmlContainerProps> = ({
   html,
   className,
-}) => (
-  <div
-    data-testid="DangerousHtmlContainer"
-    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(html) }}
-    className={className ? className : "" + " text-editor"}
-  ></div>
-);
+}) => {
+  // force external links to open in a new window
+  const element = document.createElement("div");
+  element.innerHTML = html;
+  element.querySelectorAll("a").forEach(function (link) {
+    if (link.host !== window.location.host) {
+      link.target = "_blank";
+      link.rel = "noopener";
+    }
+  });
+
+  return (
+    <div
+      data-testid="DangerousHtmlContainer"
+      dangerouslySetInnerHTML={{
+        __html: DOMPurify.sanitize(element.innerHTML, {
+          ADD_ATTR: ["target", "rel"],
+        }),
+      }}
+      className={className ? className : "" + " text-editor"}
+    ></div>
+  );
+};
 
 export default DangerousHtmlContainer;
