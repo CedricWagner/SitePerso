@@ -86,7 +86,7 @@ function App() {
           <div className="flex min-h-[100vh] flex-col bg-gradient-to-r from-white to-slate-100  dark:from-slate-900 dark:to-primary">
             <SkipToContent />
             <div className="container mx-auto flex-1 pt-10 lg:pt-0">
-              <div className="z-1 fixed top-0 left-0 flex w-full justify-end gap-4 rounded-b-lg bg-dark bg-opacity-50 py-5 px-4 lg:static lg:rounded-none lg:bg-transparent lg:py-8 lg:px-0">
+              <header className="z-1 fixed top-0 left-0 flex w-full justify-end gap-4 rounded-b-lg bg-dark bg-opacity-50 py-5 px-4 lg:static lg:rounded-none lg:bg-transparent lg:py-8 lg:px-0">
                 <DisplayWebsiteInfo />
                 <ThemeSwitcher
                   currentTheme={theme}
@@ -97,18 +97,18 @@ function App() {
                   isOpen={isMobileMenuOpen}
                   onToggle={onToggleMenuBurger}
                 />
-              </div>
+              </header>
               <div className="grid-cols-12 pt-8 md:grid md:gap-8 md:pt-16">
-                <div className="col-span-5 hidden md:block xl:col-span-4 2xl:col-span-3">
+                <aside className="col-span-5 hidden md:block xl:col-span-4 2xl:col-span-3">
                   <Profile />
-                </div>
+                </aside>
                 <div className="col-span-7 xl:col-span-8 2xl:col-span-9">
                   <BrowserRouter>
                     <Navigation
                       isMobileMenuOpen={isMobileMenuOpen}
                       onItemSelect={onToggleMenuBurger}
                     />
-                    <div id="main-content">
+                    <main id="main-content">
                       <Routes>
                         <Route path="/" element={<About />} />
                         <Route path="/experiences" element={<Experiences />} />
@@ -116,7 +116,7 @@ function App() {
                         <Route path="/formations" element={<Trainings />} />
                         <Route path="/loisirs" element={<Hobbies />} />
                       </Routes>
-                    </div>
+                    </main>
                   </BrowserRouter>
                 </div>
               </div>
