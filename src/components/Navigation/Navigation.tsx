@@ -30,7 +30,7 @@ const Navigation: FC<NavigationProps> = ({
         }`}
       >
         <Panel>
-          <div
+          <ul
             data-testid="Navigation"
             id="main-menu"
             className="flex-wrap gap-4 lg:flex"
@@ -65,7 +65,7 @@ const Navigation: FC<NavigationProps> = ({
               picto={<HeartIcon />}
               onSelect={onItemSelect}
             />
-          </div>
+          </ul>
         </Panel>
       </nav>
     </>

@@ -18,17 +18,21 @@ const NavigationItem: FC<NavigationItemProps> = ({
   const isActive = location.pathname + location.search === href;
 
   return (
-    <Link
-      data-testid="NavigationItem"
-      to={href}
-      onClick={onSelect}
-      className={`btn mb-3 flex items-center justify-center lg:mb-0 lg:h-[7rem] lg:w-[7rem] lg:flex-col ${
-        isActive ? "btn-primary" : "dark:btn-dark btn-light"
-      }`}
-    >
-      <span className="block h-8 w-8 lg:mb-3">{picto}</span>
-      <span className="pl-3 lg:pl-0">{title}</span>
-    </Link>
+    <li>
+      <Link
+        data-testid="NavigationItem"
+        to={href}
+        onClick={onSelect}
+        className={`btn mb-3 flex items-center justify-center lg:mb-0 lg:h-[7rem] lg:w-[7rem] lg:flex-col ${
+          isActive ? "btn-primary" : "dark:btn-dark btn-light"
+        }`}
+      >
+        <span className="block h-8 w-8 lg:mb-3" aria-hidden="true">
+          {picto}
+        </span>
+        <span className="pl-3 lg:pl-0">{title}</span>
+      </Link>
+    </li>
   );
 };
 

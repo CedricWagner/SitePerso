@@ -30,7 +30,9 @@ const InfoItem: FC<InfoItemProps> = ({
 
   return (
     <div data-testid="InfoItem" className="grid grid-cols-12">
-      <div className="col-span-2 flex max-h-12 py-2 px-2">{picto}</div>
+      <div className="col-span-2 flex max-h-12 py-2 px-2" aria-hidden="true">
+        {picto}
+      </div>
       <div className="col-span-10 flex">
         <div>
           <span className="block text-sm text-slate-600 dark:text-slate-400">
