@@ -49,6 +49,7 @@
     "display": "afficher"
   },
   "website_info": {
+    "button": "En savoir plus sur ce site",
     "title": "A propos de ce site",
     "source_code": "Voir le code source",
     "front": {
