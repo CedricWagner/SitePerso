@@ -49,7 +49,7 @@ describe("<About />", () => {
   test("it should display the title", async () => {
     render(elem);
 
-    const title = screen.getByText("Mock Présentation");
+    const title = await screen.findByText("Mock Présentation");
 
     expect(title).toBeInTheDocument();
   });

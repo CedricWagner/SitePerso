@@ -2,6 +2,7 @@ import React, { FC } from "react";
 
 interface InnerPanelProps {
   classNames?: string[];
+  children?: React.ReactNode;
 }
 
 const InnerPanel: FC<InnerPanelProps> = ({ classNames, children }) => (

@@ -5,7 +5,7 @@ import { GlobalContext } from "../../utils/contexts/Global";
 import CaptchaModal from "../CaptchaModal/CaptchaModal";
 
 interface InfoItemProps {
-  picto: React.ComponentProps<"svg">;
+  picto: React.ReactNode;
   label: string;
   value: string;
   mustVerify?: boolean;
