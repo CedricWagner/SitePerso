@@ -2,6 +2,7 @@ import React, { FC } from "react";
 
 interface TextBadgeProps {
   classNames?: string[];
+  children?: React.ReactNode;
 }
 
 const TextBadge: FC<TextBadgeProps> = ({ children, classNames }) => (

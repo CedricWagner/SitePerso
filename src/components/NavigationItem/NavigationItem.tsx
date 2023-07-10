@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 interface NavigationItemProps {
   title: string;
   href: string;
-  picto: React.ComponentProps<"svg">;
+  picto: React.ReactNode;
   onSelect: () => void;
 }
 

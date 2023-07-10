@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 interface PictoButtonProps {
-  picto: React.ComponentProps<"svg">;
+  picto: React.ReactNode;
   title: string;
   href: string;
   twTextClass?: string;
