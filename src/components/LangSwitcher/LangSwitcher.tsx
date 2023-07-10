@@ -19,6 +19,10 @@ const LangSwitcher: FC<LangSwitcherProps> = () => {
 
   useEffect(() => {
     document.title = t("document.title");
+    document
+      .querySelector<HTMLMetaElement>('meta[name="description"]')
+      ?.setAttribute("content", t("document.metadesc"));
+
     document.documentElement.setAttribute("lang", i18n.language);
     localStorage.lang = i18n.language;
     context?.setLang(i18n.language);
