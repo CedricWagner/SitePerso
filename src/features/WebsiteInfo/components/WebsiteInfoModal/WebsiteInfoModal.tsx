@@ -2,13 +2,14 @@ import Modal from "@/components/Modal/Modal";
 import React, { FC } from "react";
 import { useTranslation } from "react-i18next";
 import LinkIcon from "@heroicons/react/24/outline/LinkIcon";
+import { WebsiteCarbonBadge } from "react-websitecarbon-badge";
 
 interface WebsiteInfoModalProps {
   onClose: () => void;
 }
 
 const WebsiteInfoModal: FC<WebsiteInfoModalProps> = ({ onClose }) => {
-  const { t } = useTranslation("common");
+  const { t, i18n } = useTranslation("common");
   const titleClasses = "text-xl font-bold";
   const linkClasses = "underline text-primary";
 
@@ -46,7 +47,10 @@ const WebsiteInfoModal: FC<WebsiteInfoModalProps> = ({ onClose }) => {
           </a>
         </p>
         <h3 className={titleClasses}>{t("website_info.server.title")}</h3>
-        <p>{t("website_info.server.technologies")}</p>
+        <p className="mb-4">{t("website_info.server.technologies")}</p>
+
+        <h3 className={titleClasses + " mb-6"}>{t("website_info.green_it.title")}</h3>
+        <WebsiteCarbonBadge dark={false} lang={i18n.language} url="cedric-wagner.fr" co2="0.04" percentage="96"/>                
       </Modal>
     </div>
   );

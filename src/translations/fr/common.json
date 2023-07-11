@@ -64,6 +64,9 @@
     "server": {
       "title": "Serveur",
       "technologies": "Hébergé sur mon VPS, gràce à Docker et Nginx avec \"nginx-proxy-manager\""
+    },
+    "green_it": {
+      "title": "Green IT"
     }
   },
   "skip": {
