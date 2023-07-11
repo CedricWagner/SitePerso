@@ -6,6 +6,7 @@ interface HeroButtonProps {
   onClick: (params: any) => void;
   title: string;
   lang?: lang;
+  children?: React.ReactNode;
 }
 
 const HeroButton: FC<HeroButtonProps> = ({

@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 
-interface PageTitleProps {}
+interface PageTitleProps {
+  children?: React.ReactNode;
+}
 
 const PageTitle: FC<PageTitleProps> = ({ children }) => (
   <h1 data-testid="PageTitle" className="mb-4 text-2xl font-bold">

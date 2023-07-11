@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import Panel from "@/wrappers/Panel/Panel";
 import { Profile } from "@/features/Profile";
 import { useAbout } from "../../api/getAbout";
