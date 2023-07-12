@@ -1,6 +1,7 @@
 {
   "document": {
-    "title": "Cédric Wagner - Mon CV en ligne"
+    "title": "Cédric Wagner - Mon CV en ligne",
+    "metadesc": "CV dynamique en ligne, par Cédric Wagner"
   },
   "lang": {
     "switch": "English version"
@@ -49,6 +50,7 @@
     "display": "afficher"
   },
   "website_info": {
+    "button": "En savoir plus sur ce site",
     "title": "A propos de ce site",
     "source_code": "Voir le code source",
     "front": {
@@ -62,6 +64,9 @@
     "server": {
       "title": "Serveur",
       "technologies": "Hébergé sur mon VPS, gràce à Docker et Nginx avec \"nginx-proxy-manager\""
+    },
+    "green_it": {
+      "title": "Green IT"
     }
   },
   "skip": {

@@ -1,6 +1,7 @@
 {
   "document": {
-    "title": "Cédric Wagner - My online resume"
+    "title": "Cédric Wagner - My online resume",
+    "metadesc": "Dynamic online resume, by Cédric Wagner"
   },
   "lang": {
     "switch": "Version française"
@@ -49,6 +50,7 @@
     "display": "display"
   },
   "website_info": {
+    "button": "About this website",
     "title": "About this website",
     "source_code": "View source code",
     "front": {
@@ -62,6 +64,9 @@
     "server": {
       "title": "Serveur",
       "technologies": "Hosted with my VPS, using Docker and Nginx with \"nginx-proxy-manager\""
+    },
+    "green_it": {
+      "title": "Green IT"
     }
   },
   "skip": {

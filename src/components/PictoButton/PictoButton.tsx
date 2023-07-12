@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 interface PictoButtonProps {
-  picto: React.ComponentProps<"svg">;
+  picto: React.ReactNode;
   title: string;
   href: string;
   twTextClass?: string;
@@ -23,7 +23,7 @@ const PictoButton: FC<PictoButtonProps> = ({
     title={title}
     className={`btn block h-10 w-10 bg-slate-200 dark:bg-slate-700 ${twTextClass} dark:${twHoverBgClass} ${twHoverBgClass} hover:text-white `}
   >
-    {picto}
+    <span aria-hidden="true">{picto}</span>
   </a>
 );
 

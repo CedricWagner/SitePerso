@@ -5,7 +5,9 @@ import { FC, Suspense } from "react";
 
 i18next.init(I18NEXT_CONFIG);
 
-interface WrapperProps {}
+interface WrapperProps {
+  children?: React.ReactNode;
+}
 
 export const I18nextWrapper: FC<WrapperProps> = ({ children }) => {
   return (
